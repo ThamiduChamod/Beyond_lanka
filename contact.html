@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us | Sri Lanka Tourism</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --accent: #007d8c;
+            --muted: #6b7280;
+            --white-glass: rgba(255,255,255,0.85);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background:
+                    linear-gradient(to top, rgba(255,255,255,0.9) 10%, rgba(255,255,255,0.1) 100%),
+                    url('https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1920&q=80')
+                    center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            color: #1f2937;
+        }
+
+        header {
+            text-align: center;
+            padding: 80px 20px 40px;
+        }
+
+        header h1 {
+            font-size: 2.6rem;
+            color: var(--accent);
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        header p {
+            color: var(--muted);
+            max-width: 620px;
+            margin: 10px auto 0;
+            font-size: 1.05rem;
+        }
+
+        .main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            padding: 40px 20px 60px;
+        }
+
+        .info, .form {
+            background: var(--white-glass);
+            backdrop-filter: blur(8px);
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+            padding: 40px;
+            width: 90%;
+            max-width: 500px;
+        }
+
+        h2 {
+            color: var(--accent);
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .info-item {
+            margin-bottom: 16px;
+        }
+
+        .info-item b {
+            display: block;
+            font-weight: 600;
+            color: #0f172a;
+        }
+
+        .info-item span {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px 14px;
+            border-radius: 10px;
+            border: 1px solid #e5e7eb;
+            font-size: 1rem;
+            background-color: rgba(255,255,255,0.8);
+        }
+
+        textarea { resize: none; }
+
+        button {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #019fa8;
+        }
+
+        footer {
+            background: rgba(255,255,255,0.9);
+            padding: 40px 20px;
+            text-align: center;
+            color: var(--muted);
+        }
+
+        footer h3 {
+            color: var(--accent);
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+        }
+
+        .partners {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .partners img {
+            height: 40px;
+            opacity: 0.8;
+            filter: grayscale(100%);
+            transition: opacity 0.3s ease, filter 0.3s ease;
+        }
+
+        .partners img:hover {
+            opacity: 1;
+            filter: grayscale(0%);
+        }
+
+        @media (max-width: 600px) {
+            header h1 { font-size: 2rem; }
+            .info, .form { padding: 28px; }
+        }
+
+
+
+
+
+
+        /* ====== Section ====== */
+        .media-gallery {
+            position: relative;
+            padding: 80px 5%;
+            background: url("photos/eliphant.jpg") center/cover fixed;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+        }
+
+        .media-gallery::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(6px);
+            z-index: 0;
+        }
+
+        .media-gallery h2,
+        .media-gallery p {
+            position: relative;
+            z-index: 1;
+        }
+
+        .media-gallery h2 {
+            font-size: 2.5rem;
+            color: #ffda79;
+        }
+
+        .media-gallery p {
+            color: #eee;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        /* ====== Scrollable Container ====== */
+        .gallery-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+        }
+
+        .media-scroll {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding: 10px 0;
+            scrollbar-width: none;
+        }
+        .media-scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* ====== Media Cards ====== */
+        .media-card {
+            flex: 0 0 auto;
+            width: 300px;
+            height: 200px;
+            border-radius: 18px;
+            overflow: hidden;
+            cursor: pointer;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(8px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow:
+                    inset 5px 5px 15px rgba(204, 219, 232, 0.1),
+                    inset -5px -5px 15px rgba(255, 255, 255, 0.2),
+                    0 10px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .media-card:hover {
+            transform: scale(1.05);
+        }
+
+        .media-card img,
+        .media-card video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* ====== Scroll Buttons ====== */
+        .scroll-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            font-size: 2rem;
+            padding: 10px 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            backdrop-filter: blur(6px);
+            transition: background 0.3s ease;
+            z-index: 2;
+        }
+        .scroll-btn:hover {
+            background: rgba(255,255,255,0.4);
+        }
+        .scroll-btn.left { left: -10px; }
+        .scroll-btn.right { right: -10px; }
+
+        /* ===== Lightbox fixes ===== */
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .lightbox-content {
+            position: relative;
+            width: 90%;
+            height: auto;
+            max-height: 90%;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .lightbox img,
+        .lightbox video {
+            max-width: 100%;
+            max-height: 90vh;
+            border-radius: 12px;
+            display: none;
+        }
+
+        /* Distinguish image vs video behavior */
+        .lightbox.show-img img {
+            display: block;
+            object-fit: contain;
+        }
+
+        .lightbox.show-video video {
+            display: block;
+            object-fit: cover;
+            width: 80%;
+            border-radius: 16px;
+        }
+
+        /* Close button */
+        .lightbox .close {
+            position: absolute;
+            top: 25px;
+            right: 40px;
+            color: white;
+            font-size: 2.2rem;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .lightbox .close:hover {
+            color: #ff4d4d;
+        }
+
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Contact Us</h1>
+    <p>We’re here to help you explore the beauty of Sri Lanka. Get in touch for travel advice, bookings, or media inquiries.</p>
+</header>
+
+<!-- ====== Gallery Section ====== -->
+<section class="media-gallery" id="gallery">
+    <h2>Explore the Beauty of Sri Lanka</h2>
+    <p>Discover our island’s charm through breathtaking photos and videos.</p>
+
+    <!-- Scrollable Wrapper -->
+    <div class="gallery-wrapper">
+        <button class="scroll-btn left" id="scrollLeft">&#10094;</button>
+
+        <div class="media-scroll" id="mediaScroll">
+            <!-- 🖼️ Images -->
+            <div class="media-card">
+                <img src="photos/redchurch.jpg" data-full="photos/redchurch.jpg" alt="Sigiriya Rock">
+            </div>
+            <div class="media-card">
+                <img src="photos/dabadeniya.jpg" data-full="photos/dabadeniya.jpg" alt="Ella Train Ride">
+            </div>
+
+            <!-- 🎥 Videos -->
+            <div class="media-card video">
+                <video src="videos/video01.mp4" poster="photos/tea-thumb.jpg" muted autoplay loop></video>
+            </div>
+            <div class="media-card video">
+                <video src="videos/homeBackground.mp4" poster="photos/beach-thumb.jpg" muted autoplay loop></video>
+            </div>
+
+            <!-- More photos -->
+            <div class="media-card">
+                <img src="photos/ocean-7112127.jpg" data-full="photos/ocean-7112127.jpg" alt="Temple">
+            </div>
+        </div>
+
+        <button class="scroll-btn right" id="scrollRight">&#10095;</button>
+    </div>
+</section>
+
+<!-- ====== Lightbox (Popup Viewer) ====== -->
+<div class="lightbox" id="lightbox">
+    <span class="close">&times;</span>
+    <div class="lightbox-content">
+        <img id="lightbox-img" >
+        <video id="lightbox-video" controls></video>
+    </div>
+</div>
+
+
+
+
+<main class="main">
+    <section class="info">
+        <h2>Contact Information</h2>
+        <div class="info-item">
+            <b>Phone:</b>
+            <span>+94 77 123 4567</span>
+        </div>
+        <div class="info-item">
+            <b>Email:</b>
+            <span>info@srilankatours.lk</span>
+        </div>
+        <div class="info-item">
+            <b>Address:</b>
+            <span>No. 45, Marine Drive, Colombo, Sri Lanka</span>
+        </div>
+    </section>
+
+    <section class="form">
+        <h2>Send Us a Message</h2>
+        <form id="contactForm" onsubmit="handleSubmit(event)">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+</main>
+
+<footer>
+    <h3>Explore Sri Lanka</h3>
+    <div class="partners">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Emblem_of_Sri_Lanka.svg/200px-Emblem_of_Sri_Lanka.svg.png" alt="Sri Lanka Tourism">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Logo_placeholder.svg" alt="Antrya">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Logo_placeholder.svg" alt="Audacity">
+    </div>
+    <p>© 2025 Sri Lanka Tourism Alliance. Designed by Antrya Solutions.</p>
+</footer>
+
+<script>
+    function handleSubmit(e) {
+        e.preventDefault();
+        const f = e.target;
+        const data = {
+            name: f.name.value.trim(),
+            email: f.email.value.trim(),
+            message: f.message.value.trim(),
+            time: new Date().toISOString()
+        };
+        console.log("Contact Form Data:", data);
+        alert("Thank you for reaching out! We'll reply soon.");
+        f.reset();
+    }
+</script>
+
+<script>
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const lightboxVideo = document.getElementById("lightbox-video");
+    const closeBtn = document.querySelector(".lightbox .close");
+
+    document.querySelectorAll(".media-card").forEach(card => {
+        card.addEventListener("click", () => {
+            const img = card.querySelector("img");
+            const video = card.querySelector("video");
+
+            // Reset both views first
+            lightboxImg.style.display = "none";
+            lightboxVideo.style.display = "none";
+
+            if (img) {
+                // Show image fullscreen
+                lightboxImg.src = img.dataset.full || img.src;
+                console.log(img.src)
+                lightboxImg.style.display = "block";
+                lightbox.classList.add("show-img");
+                lightbox.classList.remove("show-video");
+            } else if (video) {
+                // Show video fullscreen
+                lightboxVideo.src = video.src;
+                lightboxVideo.style.display = "block";
+                lightboxVideo.play();
+                lightbox.classList.add("show-video");
+                lightbox.classList.remove("show-img");
+            }
+
+            lightbox.style.display = "flex";
+        });
+    });
+
+    closeBtn.addEventListener("click", () => {
+        lightbox.style.display = "none";
+        lightboxVideo.pause();
+    });
+
+    lightbox.addEventListener("click", (e) => {
+        if (e.target === lightbox) {
+            lightbox.style.display = "none";
+            lightboxVideo.pause();
+        }
+    });
+
+    // Scroll buttons
+    const scrollContainer = document.getElementById("mediaScroll");
+    document.getElementById("scrollLeft").onclick = () => {
+        scrollContainer.scrollBy({ left: -350, behavior: "smooth" });
+    };
+    document.getElementById("scrollRight").onclick = () => {
+        scrollContainer.scrollBy({ left: 350, behavior: "smooth" });
+    };
+</script>
+
+
+
+</body>
+</html>

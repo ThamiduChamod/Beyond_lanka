@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        /* ---------- Variables ---------- */
+        :root{
+            --bg-dark: #0f1112;
+            --black: #000;
+            --muted: rgba(251, 252, 255, 0.37);
+            --accent: #ffd100; /* yellow */
+            --accent-dark: #e0b800;
+            --nav-height: 72px;
+            --glass: rgba(255,255,255,0.06);
+            --shadow: 0 10px 30px rgba(2,6,23,0.45);
+            font-family: "Inter", "Segoe UI", Roboto, system-ui, -apple-system, sans-serif;
+        }
+        /* ---------- Reset ---------- */
+        *{box-sizing:border-box;margin:0;padding:0}
+        html,body{height:100%}
+        body{
+            /*background: linear-gradient(180deg, #f7f7ff 0%, rgba(0, 67, 253, 0.88) 100%);*/
+            /*color:#fff;*/
+            -webkit-font-smoothing:antialiased;
+            -moz-osx-font-smoothing:grayscale;
+        }
+        /* ---------- Header / Nav ---------- */
+        header{
+            height:var(--nav-height);
+            display: flex;
+            width: 100%;
+            align-items:center;
+            justify-content:space-between;
+            padding:12px 36px;
+            position: fixed;
+            top:0;
+            z-index: 100;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.2); /* half-transparent white */
+            backdrop-filter: blur(10px); /* 💎 glass blur effect */
+            -webkit-backdrop-filter: blur(10px); /* Safari support */
+            /*border-bottom: 1px solid rgba(255, 255, 255, 0.2);*/
+        }
+
+        .brand{
+            display:flex;
+            align-items:center;
+            gap:14px;
+        }
+        .logoImg{
+            width: 60px;
+        }
+        .brand .logo{
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            /*font-weight:900;color:#111;font-size:20px;*/
+            /*box-shadow: 0 6px 20px rgba(0,0,0,0.5);*/
+        }
+        .brand .title{
+            line-height:1;
+            display:flex;flex-direction:column;
+        }
+        .brand h1{
+            font-size:20px;
+            letter-spacing:0.6px;
+            color: white;
+            /*margin-bottom:2px;color:#fff*/
+        }
+        .brand span{
+            font-size:12px;
+            color:var(--muted)
+        }
+
+        nav.nav{
+            display:flex;
+            gap:26px;
+            align-items:center;
+            font-weight:600;
+            font-size:15px;
+        }
+        nav.nav a{
+            color: rgba(0, 0, 0, 0.92);
+            text-decoration:none;
+            padding:1px 0;
+            position:relative;
+        }
+        nav.nav a::after{
+            content:"";
+            position:absolute;
+            left:0;right:0;bottom:0;height:3px;
+            background:transparent;border-radius:4px;transition:all .18s ease;
+        }
+        nav.nav a:hover::after{
+            background:var(--accent);
+            transform:translateY(6px);
+        }
+
+        /* ---------- Home ---------- */
+
+        .hero {
+            position: absolute;
+            height: 115%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .bg-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* video එක frame එකට fit වෙන්න */
+            z-index: -1;       /* content එකට පස්සේ යන්න */
+            filter: brightness(0.6); /* අඳුරු කරලා ලස්සන look එකක් */
+        }
+
+        .content {
+            position: relative;
+            text-align: center;
+            color: white;
+            z-index: 1;
+        }
+
+        .content h1 {
+            font-size: 48px;
+            letter-spacing: 1px;
+        }
+
+        .content p {
+            font-size: 20px;
+            margin-top: 10px;
+        }
+
+        /* ---------- About ---------- */
+        .about{
+            position: relative;
+            width: 100%;
+            top: 100vh;
+            /*height: 100vh;*/
+            display: flex;
+            align-content: center;
+            justify-content: center;
+
+        }
+        .aboutImgContainer{
+            width: 50%;
+            /*height: 50%;*/
+            display: flex;
+            align-content: center;
+            justify-content: center;
+            /*border: 10px solid blue;*/
+            /*background: black;*/
+
+        }
+        .aboutImg{
+            width: 80%;
+            border-radius: 20px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+        }
+        .aboutTextContainer{
+            width: 60%;
+            display: flex;
+            align-items: center;
+            font-family: "Inter", "Segoe UI", Roboto, system-ui, -apple-system, sans-serif;
+            /*text-align: center;*/
+            text-justify: auto;
+            margin: 10px;
+        }
+        .aboutTextContainer > h1{
+            color: white;
+        }
+
+        /* ---------- service ---------- */
+
+        .service{
+            position: relative;
+            width: 100%;
+            height: 100%;
+            top: 100vh;
+            background: rgba(21, 40, 140, 0.89);
+        }
+
+        /* Import Font Awesome */
+        @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css');
+
+        /* Service Section */
+        .service-section {
+            /*background: radial-gradient(circle at top, #0f0f0f, #000);*/
+            padding: 100px 40px;
+            color: #fff;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            top: 100vh;
+        }
+
+        .section-title {
+            font-size: 38px;
+            color: #000000;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .section-subtitle {
+            color: #6c6c6c;
+            font-size: 16px;
+            margin-bottom: 60px;
+            font-style: italic;
+            letter-spacing: 1px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 35px;
+            justify-items: center;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 40px 25px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .servicePraUl {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .servicePraLi {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+            font-size: 1.05rem;
+            color: #333;
+        }
+
+        .servicePraLi::before {
+            content: "✔";
+            position: absolute;
+            left: 0;
+            color: #007d8c; /* same as your theme color */
+            font-weight: bold;
+        }
+
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 40px rgba(26, 95, 225, 0.88);
+        }
+
+        .icon-box {
+            background: linear-gradient(135deg, #155efa, #0b5df5);
+            color: #ffffff;
+            border-radius: 50%;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            margin: 0 auto 20px;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .icon-box {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(50, 91, 255, 0.7);
+        }
+
+        .service-card h3 {
+            font-size: 20px;
+            color: rgba(0, 0, 0, 0.92);
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .service-card p {
+            font-size: 14px;
+            color: #393939;
+            line-height: 1.7;
+        }
+
+        /* Optional: glowing animated particles background */
+        .service-section::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            /*background: radial-gradient(circle, rgba(255,215,0,0.1) 0%, transparent 60%);*/
+            animation: glowMove 10s infinite linear;
+        }
+
+        @keyframes glowMove {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+
+        /* ---------- contact footer ---------- */
+        .contact-footer {
+            position: relative;
+            top: 100vh;
+            color: white;
+            /*padding: 100px 0 40px;*/
+            overflow: hidden;
+
+            /*background: rgba(255, 255, 255, 0.15);*/
+            /*backdrop-filter: blur(4px);*/
+            /*box-shadow: rgb(204, 219, 232) 30px 30px 10px 30px inset, rgba(255, 255, 255, 0.75) -3px -3px 6px 1px inset;*/
+            background-color: rgba(0, 0, 0, 0.38);
+        }
+
+        .backgroundPhoto {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+            filter: brightness(0.55);
+            box-shadow: rgb(204, 219, 232) 30px 30px 10px 30px inset, rgba(255, 255, 255, 0.75) -3px -3px 6px 1px inset;
+
+        }
+
+        /* Glass overlay effect */
+        .glass-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(4px);
+            z-index: -1;
+        }
+
+        .contact {
+            text-align: center;
+            top: 0;
+            /*margin-bottom: 60px;*/
+            padding-bottom: 60px;
+            /*border: 10px solid black;*/
+            /*background: rgba(255, 255, 255, 0.15);*/
+            /*background: repeating-linear-gradient(*/
+            /*        to bottom,*/
+            /*        rgba(255, 255, 255, 0.32) 0%,*/
+            /*        rgba(255, 255, 255, 0.15) 100%*/
+            /*);*/
+            /*backdrop-filter: blur(4px);*/
+        }
+
+        .contact h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #019fa8;
+            text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.6);
+            padding: 50px;
+        }
+
+        .contact p {
+            max-width: 600px;
+            margin: 10px auto;
+            font-size: 1.1rem;
+            color: #f1f1f1;
+            line-height: 1.6;
+        }
+
+        .footer-container {
+            display: grid;
+            justify-content: center;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 40px;
+            padding: 1% 2%;
+            /*background: rgba(255, 255, 255, 0.15);*/
+            /*backdrop-filter: blur(4px);*/
+        }
+
+        .footer-col h3 {
+            color: #ffd369;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+            font-size: 1rem;
+            color: #eee;
+        }
+
+        .footer-col ul li a {
+            color: #eee;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-col ul li a:hover {
+            color: #ffd369;
+        }
+
+        .contactLogoImg {
+            width: 180px;
+            margin-top: 10px;
+            border-radius: 8px;
+        }
+
+        .social-media {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .social-media a {
+            background: rgba(255, 255, 255, 0.2);
+            height: 40px;
+            width: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s ease;
+        }
+
+        .social-media a:hover {
+            background: #ffd369;
+            transform: translateY(-3px);
+        }
+
+        .social-media a i {
+            color: #fff;
+            font-size: 18px;
+        }
+
+
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px 14px;
+            border-radius: 10px;
+            border: 1px solid #e5e7eb;
+            font-size: 1rem;
+            background-color: rgba(255,255,255,0.8);
+        }
+
+        textarea { resize: none; }
+
+        button {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #019fa8;
+        }
+
+        .copyright {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #ccc;
+            margin-bottom: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 30px;
+        }
+
+
+
+
+        @media (min-width: 900px) {
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .services-grid .service-card:nth-child(5) {
+                grid-column: 2; /* center column */
+            }
+        }
+
+
+
+
+
+        /* ====== Section ====== */
+        .media-gallery {
+            position: relative;
+            top: 110vh;
+            padding: 80px 5%;
+            background: url("photos/eliphant.jpg") center/cover fixed;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+        }
+
+        .media-gallery::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(6px);
+            z-index: 0;
+        }
+
+        .media-gallery h2,
+        .media-gallery p {
+            position: relative;
+            z-index: 1;
+        }
+
+        .media-gallery h2 {
+            font-size: 2.5rem;
+            color: #ffda79;
+        }
+
+        .media-gallery p {
+            color: #eee;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        /* ====== Scrollable Container ====== */
+        .gallery-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+        }
+
+        .media-scroll {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding: 10px 0;
+            scrollbar-width: none;
+        }
+        .media-scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* ====== Media Cards ====== */
+        .media-card {
+            flex: 0 0 auto;
+            width: 300px;
+            height: 200px;
+            border-radius: 18px;
+            overflow: hidden;
+            cursor: pointer;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(8px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow:
+                    inset 5px 5px 15px rgba(204, 219, 232, 0.1),
+                    inset -5px -5px 15px rgba(255, 255, 255, 0.2),
+                    0 10px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .media-card:hover {
+            transform: scale(1.05);
+        }
+
+        .media-card img,
+        .media-card video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* ====== Scroll Buttons ====== */
+        .scroll-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            font-size: 2rem;
+            padding: 10px 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            backdrop-filter: blur(6px);
+            transition: background 0.3s ease;
+            z-index: 2;
+        }
+        .scroll-btn:hover {
+            background: rgba(255,255,255,0.4);
+        }
+        .scroll-btn.left { left: -10px; }
+        .scroll-btn.right { right: -10px; }
+
+        /* ===== Lightbox fixes ===== */
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .lightbox-content {
+            position: relative;
+            width: 90%;
+            height: auto;
+            max-height: 90%;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .lightbox img,
+        .lightbox video {
+            max-width: 100%;
+            max-height: 90vh;
+            border-radius: 12px;
+            display: none;
+        }
+
+        /* Distinguish image vs video behavior */
+        .lightbox.show-img img {
+            display: block;
+            object-fit: contain;
+        }
+
+        .lightbox.show-video video {
+            display: block;
+            object-fit: cover;
+            width: 80%;
+            border-radius: 16px;
+        }
+
+        /* Close button */
+        .lightbox .close {
+            position: absolute;
+            top: 25px;
+            right: 40px;
+            color: white;
+            font-size: 2.2rem;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .lightbox .close:hover {
+            color: #ff4d4d;
+        }
+
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+
+
+    </style>
+</head>
+<body>
+<!-- header -->
+<header>
+    <div class="brand">
+        <div class="logo">
+            <img class="logoImg" src="photos/bgremoveLogo.png">
+        </div>
+        <div class="title">
+            <h1>Beyond Lanka</h1>
+            <span>Travel • Culture • Nature</span>
+        </div>
+    </div>
+
+    <nav class="nav" aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+</header>
+
+<!-- home -->
+<section class="hero" id="home">
+    <video autoplay muted loop playsinline class="bg-video">
+        <source src="videos/homeBackground.mp4" type="video/mp4">
+    </video>
+
+    <div class="content">
+        <h1>Welcome to Sri Lanka</h1>
+        <p>Experience Paradise on Earth 🌴</p>
+    </div>
+</section>
+
+<!-- About -->
+<section class="about" id="about">
+    <div class="aboutImgContainer">
+        <img class="aboutImg" src="photos/watermarked-7cdec4aa-2279-41c6-af2e-a5e5833746eb.png">
+    </div>
+
+    <div class="aboutTextContainer">
+        <div>
+            <h1>About Beyond Lanka</h1>
+            <p>
+               Beyond Lanka is a local tour experience based in the heart of Sri Lanka, created to take you beyond the typical tourist path. We specialize in personalized, immersive journeys that connect you with the true beauty, culture, and spirit of this tropical paradise.<br>
+               <br>From  misty highlands to golden beaches, ancient temples to vibrant markets, our tours are designed to show you the real Sri Lanka — its stories, its people, and its hidden gems. Whether you're seeking adventure, heritage, or serenity, Beyond Lanka is here to guide your unforgettable journey.<br>
+                <br>Join  us, and go beyond the map — discover Beyond Lanka.
+            </p>
+        </div>
+    </div>
+
+</section>
+
+<!-- gallery -->
+
+<!-- ====== Gallery Section ====== -->
+<section class="media-gallery" id="gallery">
+    <h2>Explore the Beauty of Sri Lanka</h2>
+    <p>Discover our island’s charm through breathtaking photos and videos.</p>
+
+    <!-- Scrollable Wrapper -->
+    <div class="gallery-wrapper">
+        <button class="scroll-btn left" id="scrollLeft">&#10094;</button>
+
+        <div class="media-scroll" id="mediaScroll">
+            <!-- 🖼️ Images -->
+            <div class="media-card">
+                <img src="photos/redchurch.jpg" data-full="photos/redchurch.jpg" alt="Sigiriya Rock">
+            </div>
+            <div class="media-card">
+                <img src="photos/dabadeniya.jpg" data-full="photos/dabadeniya.jpg" alt="Ella Train Ride">
+            </div>
+
+            <!-- 🎥 Videos -->
+            <div class="media-card video">
+                <video src="videos/video01.mp4" poster="photos/tea-thumb.jpg" muted autoplay loop></video>
+            </div>
+            <div class="media-card video">
+                <video src="videos/homeBackground.mp4" poster="photos/beach-thumb.jpg" muted autoplay loop></video>
+            </div>
+
+            <!-- More photos -->
+            <div class="media-card">
+                <img src="photos/ocean-7112127.jpg" data-full="photos/ocean-7112127.jpg" alt="Temple">
+            </div>
+        </div>
+
+        <button class="scroll-btn right" id="scrollRight">&#10095;</button>
+    </div>
+</section>
+
+<!-- ====== Lightbox (Popup Viewer) ====== -->
+<div class="lightbox" id="lightbox">
+    <span class="close">&times;</span>
+    <div class="lightbox-content">
+        <img id="lightbox-img" >
+        <video id="lightbox-video" controls></video>
+    </div>
+</div>
+
+
+
+<!-- service -->
+<section id="services" class="service-section">
+    <h2 class="section-title">Our Premium Services</h2>
+    <p class="section-subtitle">Explore Sri Lanka in Comfort & Style</p>
+
+    <div class="services-grid">
+
+        <div class="service-card">
+            <div class="icon-box"><i class="fa-solid fa-taxi"></i></div>
+            <h3>Airport Transfer</h3>
+            <p>Experience smooth, punctual airport transfers with our professional chauffeurs.</p>
+        </div>
+
+        <div class="service-card">
+            <div class="icon-box"><i class="fa-solid fa-route"></i></div>
+            <h3>Point to Point Transportation</h3>
+            <p>Travel between destinations in total comfort with our reliable point-to-point service.</p>
+        </div>
+
+        <div class="service-card">
+            <div class="icon-box"><i class="fa-solid fa-calendar-days"></i></div>
+            <h3>Multi-Day Tours</h3>
+            <p>Immerse yourself in Sri Lanka’s culture and beauty through multi-day guided tours.</p>
+        </div>
+
+        <div class="service-card">
+            <div class="icon-box"><i class="fa-solid fa-city"></i></div>
+            <h3>City Tours</h3>
+            <p>Discover the hidden gems of Sri Lanka’s iconic cities with expert local guides.</p>
+        </div>
+
+        <div class="service-card">
+            <div class="icon-box">
+                <i class="fa-solid fa-user-tie"></i>
+            </div>
+            <h3>Private Tours</h3>
+            <p>
+                Enjoy Sri Lanka your way with our exclusive <strong>Private Tours</strong>.
+                At <strong>Beyond Lanka</strong>, we believe every traveler deserves a personalized experience.
+                Whether you're a solo traveler, a couple, or a small group, our private tours give you the freedom to explore at your own pace, with full comfort and privacy.
+            </p>
+
+            <h1>We offer:</h1>
+            <ul class="servicePraUl">
+                <li class="servicePraLi">Fully customizable itineraries</li>
+                <li class="servicePraLi">Private vehicle with a dedicated driver-guide</li>
+                <li class="servicePraLi">Flexible schedules and stops</li>
+                <li class="servicePraLi">Authentic local experiences tailored to you</li>
+            </ul>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- contact us -->
+<footer class="contact-footer">
+    <img class="backgroundPhoto" src="photos/nine-arch-5871882.jpg" alt="Sri Lanka Beach">
+
+    <!-- Transparent Glass Overlay -->
+    <div class="glass-overlay"></div>
+
+    <div class="contact">
+        <h1>Contact Us</h1>
+        <p>We’re here to help you explore the beauty of Sri Lanka. Get in touch for travel advice, bookings, or media inquiries.</p>
+    </div>
+
+    <div class="container">
+        <div class="footer-container">
+
+            <!-- Column 1 -->
+            <div class="footer-col">
+                <h3>Beyond Lanka</h3>
+                <img class="contactLogoImg" src="photos/watermarked-7cdec4aa-2279-41c6-af2e-a5e5833746eb.png" alt="Logo">
+            </div>
+
+            <!-- Column 2 -->
+            <div class="footer-col">
+                <h3>Explore</h3>
+                <ul>
+                    <li><a href="#">Tour Packages</a></li>
+                    <li><a href="#">Destinations</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Gallery</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3 -->
+            <div class="footer-col">
+                <h3>Contact Information</h3>
+                <div class="social-media">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> Colombo, Sri Lanka</li>
+                    <li><i class="fas fa-envelope"></i> travel@srilanka.lk</li>
+                    <li><i class="fas fa-phone"></i> +94 70 77 7777</li>
+                </ul>
+            </div>
+
+            <!-- Column 4 -->
+            <div class="footer-col">
+                <h3>Send Us a Message</h3>
+                <form id="contactForm" onsubmit="handleSubmit(event)">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+
+        </div>
+        <div class="copyright">
+            <p>© 2025 All Rights Reserved | Designed & Developed By <a href="">Thamidu Chamod...</a></p>
+        </div>
+    </div>
+</footer>
+
+
+<script>
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const lightboxVideo = document.getElementById("lightbox-video");
+    const closeBtn = document.querySelector(".lightbox .close");
+
+    document.querySelectorAll(".media-card").forEach(card => {
+        card.addEventListener("click", () => {
+            const img = card.querySelector("img");
+            const video = card.querySelector("video");
+
+            // Reset both views first
+            lightboxImg.style.display = "none";
+            lightboxVideo.style.display = "none";
+
+            if (img) {
+                // Show image fullscreen
+                lightboxImg.src = img.dataset.full || img.src;
+                console.log(img.src)
+                lightboxImg.style.display = "block";
+                lightbox.classList.add("show-img");
+                lightbox.classList.remove("show-video");
+            } else if (video) {
+                // Show video fullscreen
+                lightboxVideo.src = video.src;
+                lightboxVideo.style.display = "block";
+                lightboxVideo.play();
+                lightbox.classList.add("show-video");
+                lightbox.classList.remove("show-img");
+            }
+
+            lightbox.style.display = "flex";
+        });
+    });
+
+    closeBtn.addEventListener("click", () => {
+        lightbox.style.display = "none";
+        lightboxVideo.pause();
+    });
+
+    lightbox.addEventListener("click", (e) => {
+        if (e.target === lightbox) {
+            lightbox.style.display = "none";
+            lightboxVideo.pause();
+        }
+    });
+
+    // Scroll buttons
+    const scrollContainer = document.getElementById("mediaScroll");
+    document.getElementById("scrollLeft").onclick = () => {
+        scrollContainer.scrollBy({ left: -350, behavior: "smooth" });
+    };
+    document.getElementById("scrollRight").onclick = () => {
+        scrollContainer.scrollBy({ left: 350, behavior: "smooth" });
+    };
+</script>
+
+</body>
+</html>

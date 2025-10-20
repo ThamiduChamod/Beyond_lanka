@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a78c5dea-ddac-47a9-86ed-f2744aa29e9f" name="Changes" comment="remove other files" />
+    <list default="true" id="a78c5dea-ddac-47a9-86ed-f2744aa29e9f" name="Changes" comment="remove other files &amp; add photos" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -93,7 +93,7 @@
       <workItem from="1760797943687" duration="81000" />
       <workItem from="1760798056805" duration="840000" />
       <workItem from="1760945197165" duration="3972000" />
-      <workItem from="1760968641775" duration="671000" />
+      <workItem from="1760968641775" duration="1097000" />
     </task>
     <task id="LOCAL-00001" summary="upload git">
       <option name="closed" value="true" />
@@ -175,7 +175,15 @@
       <option name="project" value="LOCAL" />
       <updated>1760969253852</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="remove other files &amp; add photos">
+      <option name="closed" value="true" />
+      <created>1760969481744</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1760969481744</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -201,6 +209,7 @@
     <MESSAGE value="Remove other files" />
     <MESSAGE value="Add logo png" />
     <MESSAGE value="remove other files" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove other files" />
+    <MESSAGE value="remove other files &amp; add photos" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove other files &amp; add photos" />
   </component>
 </project>

@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a78c5dea-ddac-47a9-86ed-f2744aa29e9f" name="Changes" comment="Remove other files">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="a78c5dea-ddac-47a9-86ed-f2744aa29e9f" name="Changes" comment="remove other files" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,7 +51,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "E:/Projects/Beyond Lanka/videos",
+    "last_opened_file_path": "E:/Projects/Beyond_lanka/photos",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -94,6 +92,7 @@
       <workItem from="1760797943687" duration="81000" />
       <workItem from="1760798056805" duration="840000" />
       <workItem from="1760945197165" duration="3972000" />
+      <workItem from="1760968641775" duration="671000" />
     </task>
     <task id="LOCAL-00001" summary="upload git">
       <option name="closed" value="true" />
@@ -151,7 +150,31 @@
       <option name="project" value="LOCAL" />
       <updated>1760946438939</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Remove other files">
+      <option name="closed" value="true" />
+      <created>1760968888893</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1760968888893</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Add logo png">
+      <option name="closed" value="true" />
+      <created>1760969145906</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1760969145906</updated>
+    </task>
+    <task id="LOCAL-00010" summary="remove other files">
+      <option name="closed" value="true" />
+      <created>1760969253852</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1760969253852</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -175,6 +198,8 @@
     <MESSAGE value="Remove video" />
     <MESSAGE value="Add git ignore file" />
     <MESSAGE value="Remove other files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Remove other files" />
+    <MESSAGE value="Add logo png" />
+    <MESSAGE value="remove other files" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove other files" />
   </component>
 </project>

@@ -93,7 +93,7 @@
       <workItem from="1760797943687" duration="81000" />
       <workItem from="1760798056805" duration="840000" />
       <workItem from="1760945197165" duration="3972000" />
-      <workItem from="1760968641775" duration="1097000" />
+      <workItem from="1760968641775" duration="1522000" />
     </task>
     <task id="LOCAL-00001" summary="upload git">
       <option name="closed" value="true" />
@@ -183,7 +183,15 @@
       <option name="project" value="LOCAL" />
       <updated>1760969481744</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="remove other files &amp; add photos">
+      <option name="closed" value="true" />
+      <created>1760969789026</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1760969789026</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

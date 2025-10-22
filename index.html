@@ -22,9 +22,9 @@
         *{box-sizing:border-box;margin:0;padding:0}
         html,body{height:100%}
         body{
-            /*background: linear-gradient(180deg, #f7f7ff 0%, rgba(0, 67, 253, 0.88) 100%);*/
-            /*color:#fff;*/
-            -webkit-font-smoothing:antialiased;
+        /background: linear-gradient(180deg, #f7f7ff 0%, rgba(0, 67, 253, 0.88) 100%);/
+        /color:#fff;/
+        -webkit-font-smoothing:antialiased;
             -moz-osx-font-smoothing:grayscale;
         }
         /* ---------- Header / Nav ---------- */
@@ -42,7 +42,7 @@
             background: rgba(255, 255, 255, 0.2); /* half-transparent white */
             backdrop-filter: blur(10px); /* 💎 glass blur effect */
             -webkit-backdrop-filter: blur(10px); /* Safari support */
-            /*border-bottom: 1px solid rgba(255, 255, 255, 0.2);*/
+        /border-bottom: 1px solid rgba(255, 255, 255, 0.2);/
         }
 
         .brand{
@@ -57,8 +57,8 @@
             display:flex;
             align-items:center;
             justify-content:center;
-            /*font-weight:900;color:#111;font-size:20px;*/
-            /*box-shadow: 0 6px 20px rgba(0,0,0,0.5);*/
+        /font-weight:900;color:#111;font-size:20px;/
+        /box-shadow: 0 6px 20px rgba(0,0,0,0.5);/
         }
         .brand .title{
             line-height:1;
@@ -68,7 +68,7 @@
             font-size:20px;
             letter-spacing:0.6px;
             color: white;
-            /*margin-bottom:2px;color:#fff*/
+            /*/margin-bottom:2px;color:#fff/*/
         }
         .brand span{
             font-size:12px;
@@ -113,6 +113,37 @@
             justify-content: center;
         }
 
+        .hero .content {
+            text-align: center;
+            color: #fff;
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero .content h1 {
+            font-size: 4rem;
+            margin-bottom: 10px;
+        }
+
+        .hero .content p {
+            display: inline-block;
+            font-size: 1.6rem;
+            color: #fff;
+            border-right: 2px solid #fff; /* blinking cursor */
+            white-space: nowrap;
+            overflow: hidden;
+            height: 1.8em; /* fixes height so it doesn't move vertically */
+            text-align: center;
+            animation: blink 0.5s step-end infinite alternate;
+        }
+
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+
         .bg-video {
             position: absolute;
             top: 0;
@@ -143,10 +174,10 @@
 
         /* ---------- About ---------- */
         .about{
-            position: relative;
+
             width: 100%;
-            top: 100vh;
-            /*height: 100vh;*/
+            margin-top: 100vh; /* pushes it below the hero section */
+            /*/height: 100vh;/*/
             display: flex;
             align-content: center;
             justify-content: center;
@@ -154,12 +185,12 @@
         }
         .aboutImgContainer{
             width: 50%;
-            /*height: 50%;*/
+            /*/height: 50%;/*/
             display: flex;
             align-content: center;
             justify-content: center;
-            /*border: 10px solid blue;*/
-            /*background: black;*/
+            /*/border: 10px solid blue;/*/
+            /*/background: black;/*/
 
         }
         .aboutImg{
@@ -172,7 +203,7 @@
             display: flex;
             align-items: center;
             font-family: "Inter", "Segoe UI", Roboto, system-ui, -apple-system, sans-serif;
-            /*text-align: center;*/
+            /*/text-align: center;/*/
             text-justify: auto;
             margin: 10px;
         }
@@ -180,44 +211,186 @@
             color: white;
         }
 
-        /* ---------- service ---------- */
-
-        .service{
-            position: relative;
-            width: 100%;
-            height: 100%;
-            top: 100vh;
-            background: rgba(21, 40, 140, 0.89);
-        }
-
         /* Import Font Awesome */
-        @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css');
+        /*@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css');*/
+        @import url('https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap');
 
         /* Service Section */
+
+        /* ===== Creative Cards Style ===== */
+        .creative-cards{
+            padding: 120px 0;
+            position: relative;
+            margin-top: 100px; /* space before services */
+        }
+        .creative-cards .container {
+            max-width: 1320px;
+            width: 100%;
+            padding-right: .75rem;
+            padding-left: .75rem;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        .creative-cards .container .row{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .creative-cards .container .row .card-column {
+            flex: 0 0 auto;
+            width: 33.33333333%;
+            text-align: center;
+            max-width: 100%;
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+        .card-details {
+            width: 80%;
+            margin: auto;
+            position: relative;
+            transition: .3s ease-in-out;
+        }
+        .card-details:before {
+            content: "";
+            width: 190px;
+            height: 380px;
+            background: #f7f6f2;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) skew(-20deg, 0deg);
+            z-index: -1;
+            transition: .3s ease-in-out;
+        }
+        .card-details:hover::before {
+            background-color: #cce5ff; /* 🔵 soft blue hover background */
+        }
+
+        .card-icons {
+            width: 140px;
+            height: 150px;
+            position: relative;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .card-icons::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            /*border: 1px solid;*/
+            width: 100%;
+            height: 100%;
+            transform: skew(-20deg, 0deg);
+            background: #fff;
+            border-color: #1e90ff; /* 🔵 blue border */
+            transition: .3s ease-in-out;
+        }
+
+        .card-details:hover .card-icons::before {
+            background-color: #1E90FF; /* 🔵 blue hover background */
+        }
+
+        .card-icons img{
+            position: relative;
+            width: 70px;
+            height: 70px;
+        }
+        .card-details h3{
+            margin-bottom: 15px;
+            margin-top: 50px;
+            font-weight: 700;
+            font-size: 1.75rem;
+            line-height: 1.2;
+        }
+        .card-details h3 a{
+            color: #000;
+            text-decoration: none;
+        }
+        .card-details p{
+            font-size: 16px;
+            line-height: 30px;
+            color: #444;
+            font-weight: 400;
+            margin-bottom: 30px;
+        }
+        .read-more-btn {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid;
+            border-radius: 100%;
+            margin: auto;
+            background: #fff;
+            transform: translateX(-10px);
+            opacity: 0;
+            visibility: hidden;
+            border-color:#1E90FF;
+            transition: .3s ease-in-out;
+            text-decoration: none;
+        }
+        .read-more-btn i{
+            color: #000;
+            font-size: 12px;
+        }
+        .card-details:hover .read-more-btn{
+            transform: translateX(0);
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 992px) {
+            .creative-cards .container .row .card-column {
+                flex: 0 0 auto;
+                width: 50%;
+                margin-bottom: 40px;
+            }
+        }
+        @media (max-width: 480px) {
+            .creative-cards .container .row .card-column {
+                flex: 0 0 auto;
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            .card-details{
+                width: 100%;
+            }
+            .read-more-btn{
+                transform: translateX(0px);
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+
         .service-section {
-            /*background: radial-gradient(circle at top, #0f0f0f, #000);*/
-            padding: 100px 40px;
+        /background: radial-gradient(circle at top, #0f0f0f, #000);/
+        padding: 100px 40px;
             color: #fff;
             text-align: center;
-            position: relative;
+
             overflow: hidden;
-            top: 100vh;
+
         }
 
         .section-title {
-            font-size: 38px;
-            color: #000000;
+            font-size: 40px;
+            font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            color: #ffd369;
+            text-align: center;
             margin-bottom: 10px;
         }
-
         .section-subtitle {
             color: #6c6c6c;
             font-size: 16px;
             margin-bottom: 60px;
             font-style: italic;
             letter-spacing: 1px;
+            text-align: center;
         }
 
         .services-grid {
@@ -307,8 +480,8 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            /*background: radial-gradient(circle, rgba(255,215,0,0.1) 0%, transparent 60%);*/
-            animation: glowMove 10s infinite linear;
+        /background: radial-gradient(circle, rgba(255,215,0,0.1) 0%, transparent 60%);/
+        animation: glowMove 10s infinite linear;
         }
 
         @keyframes glowMove {
@@ -320,17 +493,16 @@
         /* ---------- contact footer ---------- */
         .contact-footer {
             position: relative;
-            top: 100vh;
+            margin-top: 100px; /* space before footer */
             color: white;
-            /*padding: 100px 0 40px;*/
-            overflow: hidden;
+        /padding: 100px 0 40px;/
+        overflow: hidden;
 
-            /*background: rgba(255, 255, 255, 0.15);*/
-            /*backdrop-filter: blur(4px);*/
-            /*box-shadow: rgb(204, 219, 232) 30px 30px 10px 30px inset, rgba(255, 255, 255, 0.75) -3px -3px 6px 1px inset;*/
-            background-color: rgba(0, 0, 0, 0.38);
+        /background: rgba(255, 255, 255, 0.15);/
+        /backdrop-filter: blur(4px);/
+        /box-shadow: rgb(204, 219, 232) 30px 30px 10px 30px inset, rgba(255, 255, 255, 0.75) -3px -3px 6px 1px inset;/
+        background-color: rgba(0, 0, 0, 0.38);
         }
-
         .backgroundPhoto {
             position: absolute;
             top: 0;
@@ -359,16 +531,16 @@
         .contact {
             text-align: center;
             top: 0;
-            /*margin-bottom: 60px;*/
-            padding-bottom: 60px;
-            /*border: 10px solid black;*/
-            /*background: rgba(255, 255, 255, 0.15);*/
-            /*background: repeating-linear-gradient(*/
+        /margin-bottom: 60px;/
+        padding-bottom: 60px;
+        /border: 10px solid black;/
+        /background: rgba(255, 255, 255, 0.15);/
+        /background: repeating-linear-gradient(/
             /*        to bottom,*/
             /*        rgba(255, 255, 255, 0.32) 0%,*/
             /*        rgba(255, 255, 255, 0.15) 100%*/
-            /*);*/
-            /*backdrop-filter: blur(4px);*/
+        /);/
+        /backdrop-filter: blur(4px);/
         }
 
         .contact h1 {
@@ -393,8 +565,8 @@
             grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
             gap: 40px;
             padding: 1% 2%;
-            /*background: rgba(255, 255, 255, 0.15);*/
-            /*backdrop-filter: blur(4px);*/
+        /background: rgba(255, 255, 255, 0.15);/
+        /backdrop-filter: blur(4px);/
         }
 
         .footer-col h3 {
@@ -520,23 +692,30 @@
 
         /* ====== Section ====== */
         .media-gallery {
-            position: relative;
-            top: 110vh;
+            position: relative;              /* ✅ overlay එකට base positioning එක */
+            margin-top: 100px;
             padding: 80px 5%;
             background: url("photos/eliphant.jpg") center/cover fixed;
             text-align: center;
             color: white;
             overflow: hidden;
+            z-index: 1;                      /* ensure overlay sits behind text */
         }
 
         .media-gallery::before {
             content: "";
             position: absolute;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(6px);
-            z-index: 0;
+            inset: 0;                        /* cover full section */
+            background: rgba(0, 0, 0, 0.4);  /* semi-transparent dark layer */
+            backdrop-filter: blur(6px);      /* ✅ blur effect */
+            z-index: 0;                      /* keep it behind the text */
         }
+
+        .media-gallery * {
+            position: relative;
+            z-index: 1;                      /* keep text above overlay */
+        }
+
 
         .media-gallery h2,
         .media-gallery p {
@@ -727,7 +906,7 @@
 
     <div class="content">
         <h1>Welcome to Sri Lanka</h1>
-        <p>Experience Paradise on Earth 🌴</p>
+        <p id="hero-text"></p>
     </div>
 </section>
 
@@ -741,8 +920,8 @@
         <div>
             <h1>About Beyond Lanka</h1>
             <p>
-               Beyond Lanka is a local tour experience based in the heart of Sri Lanka, created to take you beyond the typical tourist path. We specialize in personalized, immersive journeys that connect you with the true beauty, culture, and spirit of this tropical paradise.<br>
-               <br>From  misty highlands to golden beaches, ancient temples to vibrant markets, our tours are designed to show you the real Sri Lanka — its stories, its people, and its hidden gems. Whether you're seeking adventure, heritage, or serenity, Beyond Lanka is here to guide your unforgettable journey.<br>
+                Beyond Lanka is a local tour experience based in the heart of Sri Lanka, created to take you beyond the typical tourist path. We specialize in personalized, immersive journeys that connect you with the true beauty, culture, and spirit of this tropical paradise.<br>
+                <br>From  misty highlands to golden beaches, ancient temples to vibrant markets, our tours are designed to show you the real Sri Lanka — its stories, its people, and its hidden gems. Whether you're seeking adventure, heritage, or serenity, Beyond Lanka is here to guide your unforgettable journey.<br>
                 <br>Join  us, and go beyond the map — discover Beyond Lanka.
             </p>
         </div>
@@ -762,7 +941,7 @@
         <button class="scroll-btn left" id="scrollLeft">&#10094;</button>
 
         <div class="media-scroll" id="mediaScroll">
-            <!-- 🖼️ Images -->
+            <!-- 🖼 Images -->
             <div class="media-card">
                 <img src="photos/redchurch.jpg" data-full="photos/redchurch.jpg" alt="Sigiriya Rock">
             </div>
@@ -798,61 +977,75 @@
 </div>
 
 
-
-<!-- service -->
-<section id="services" class="service-section">
+<!-- Services Section -->
+<section id="services" class="creative-cards style-one">
     <h2 class="section-title">Our Premium Services</h2>
     <p class="section-subtitle">Explore Sri Lanka in Comfort & Style</p>
-
-    <div class="services-grid">
-
-        <div class="service-card">
-            <div class="icon-box"><i class="fa-solid fa-taxi"></i></div>
-            <h3>Airport Transfer</h3>
-            <p>Experience smooth, punctual airport transfers with our professional chauffeurs.</p>
-        </div>
-
-        <div class="service-card">
-            <div class="icon-box"><i class="fa-solid fa-route"></i></div>
-            <h3>Point to Point Transportation</h3>
-            <p>Travel between destinations in total comfort with our reliable point-to-point service.</p>
-        </div>
-
-        <div class="service-card">
-            <div class="icon-box"><i class="fa-solid fa-calendar-days"></i></div>
-            <h3>Multi-Day Tours</h3>
-            <p>Immerse yourself in Sri Lanka’s culture and beauty through multi-day guided tours.</p>
-        </div>
-
-        <div class="service-card">
-            <div class="icon-box"><i class="fa-solid fa-city"></i></div>
-            <h3>City Tours</h3>
-            <p>Discover the hidden gems of Sri Lanka’s iconic cities with expert local guides.</p>
-        </div>
-
-        <div class="service-card">
-            <div class="icon-box">
-                <i class="fa-solid fa-user-tie"></i>
+    <div class="container">
+        <div class="row">
+            <!-- Card 1 -->
+            <div class="card-column">
+                <div class="card-details">
+                    <div class="card-icons">
+                        <img class="light-icon" src="https://i.ibb.co/fV0GzDqj/construction.png" alt="icon" />
+                    </div>
+                    <h3><a href="#">Airport Transfer</a></h3>
+                    <p>Experience smooth, punctual airport transfers with our professional chauffeurs.</p>
+                    <a class="read-more-btn" href="#"><i class="fa-solid fa-angles-right"></i></a>
+                </div>
             </div>
-            <h3>Private Tours</h3>
-            <p>
-                Enjoy Sri Lanka your way with our exclusive <strong>Private Tours</strong>.
-                At <strong>Beyond Lanka</strong>, we believe every traveler deserves a personalized experience.
-                Whether you're a solo traveler, a couple, or a small group, our private tours give you the freedom to explore at your own pace, with full comfort and privacy.
-            </p>
 
-            <h1>We offer:</h1>
-            <ul class="servicePraUl">
-                <li class="servicePraLi">Fully customizable itineraries</li>
-                <li class="servicePraLi">Private vehicle with a dedicated driver-guide</li>
-                <li class="servicePraLi">Flexible schedules and stops</li>
-                <li class="servicePraLi">Authentic local experiences tailored to you</li>
-            </ul>
+            <!-- Card 2 -->
+            <div class="card-column">
+                <div class="card-details">
+                    <div class="card-icons">
+                        <img class="light-icon" src="https://i.ibb.co/KjGz3dmZ/skyline.png" alt="icon" />
+                    </div>
+                    <h3><a href="#">Point to Point Transportation</a></h3>
+                    <p>Travel between destinations in total comfort with our reliable point-to-point service.</p>
+                    <a class="read-more-btn" href="#"><i class="fa-solid fa-angles-right"></i></a>
+                </div>
+            </div>
 
+            <!-- Card 3 -->
+            <div class="card-column">
+                <div class="card-details">
+                    <div class="card-icons">
+                        <img class="light-icon" src="https://i.ibb.co/whkhVgQz/best-practice.png" alt="icon" />
+                    </div>
+                    <h3><a href="#">Multi-Day Tours</a></h3>
+                    <p>Immerse yourself in Sri Lanka’s culture and beauty through multi-day guided tours.</p>
+                    <a class="read-more-btn" href="#"><i class="fa-solid fa-angles-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="card-column">
+                <div class="card-details">
+                    <div class="card-icons">
+                        <img class="light-icon" src="https://i.ibb.co/fV0GzDqj/construction.png" alt="icon" />
+                    </div>
+                    <h3><a href="#">City Tours</a></h3>
+                    <p>Discover the hidden gems of Sri Lanka’s iconic cities with expert local guides.</p>
+                    <a class="read-more-btn" href="#"><i class="fa-solid fa-angles-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="card-column">
+                <div class="card-details">
+                    <div class="card-icons">
+                        <img class="light-icon" src="https://i.ibb.co/whkhVgQz/best-practice.png" alt="icon" />
+                    </div>
+                    <h3><a href="#">Private Tours</a></h3>
+                    <p>Enjoy Sri Lanka your way with our exclusive private tours. Fully customizable itineraries and authentic local experiences.</p>
+                    <a class="read-more-btn" href="#"><i class="fa-solid fa-angles-right"></i></a>
+                </div>
+            </div>
         </div>
-
     </div>
 </section>
+
 
 <!-- contact us -->
 <footer class="contact-footer">
@@ -978,6 +1171,44 @@
     document.getElementById("scrollRight").onclick = () => {
         scrollContainer.scrollBy({ left: 350, behavior: "smooth" });
     };
+</script>
+
+<script>
+    const heroTexts = [
+        "🌴 Discover Heaven in Every Sunrise",
+        "🏝 Where Nature Whispers Serenity",
+        "☀ Unwind in the Heart of Paradise",
+        "🌊 Feel the Magic of Tropical Bliss",
+        "🌺 A Journey Beyond Ordinary Beauty"
+    ];
+
+    let textIndex = 0;
+    let charIndex = 0;
+    const textElement = document.getElementById("hero-text");
+
+    function typeText() {
+        if (charIndex < heroTexts[textIndex].length) {
+            textElement.textContent += heroTexts[textIndex].charAt(charIndex);
+            charIndex++;
+            setTimeout(typeText, 60); // typing speed (ms per character)
+        } else {
+            setTimeout(eraseText, 1500); // wait before erasing
+        }
+    }
+
+    function eraseText() {
+        if (charIndex > 0) {
+            textElement.textContent = heroTexts[textIndex].substring(0, charIndex - 1);
+            charIndex--;
+            setTimeout(eraseText, 40); // erasing speed
+        } else {
+            textIndex = (textIndex + 1) % heroTexts.length;
+            setTimeout(typeText, 400); // pause before typing next
+        }
+    }
+
+    // start typing effect
+    typeText();
 </script>
 
 </body>

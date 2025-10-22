@@ -562,15 +562,15 @@
         .footer-container {
             display: grid;
             justify-content: center;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
             gap: 40px;
-            padding: 1% 2%;
-        /background: rgba(255, 255, 255, 0.15);/
-        /backdrop-filter: blur(4px);/
+            padding: 2% 2%;
+        /*/background: rgba(255, 255, 255, 0.15);/*/
+        /*/backdrop-filter: blur(4px);/*/
         }
 
         .footer-col h3 {
-            color: #ffd369;
+            color: white;
             font-size: 1.3rem;
             margin-bottom: 20px;
             letter-spacing: 0.5px;
@@ -594,7 +594,7 @@
         }
 
         .footer-col ul li a:hover {
-            color: #ffd369;
+            color: rgba(0, 0, 0, 0.92);
         }
 
         .contactLogoImg {
@@ -610,7 +610,7 @@
             margin-bottom: 20px;
         }
 
-        .social-media a {
+        .social-media button {
             background: rgba(255, 255, 255, 0.2);
             height: 40px;
             width: 40px;
@@ -621,12 +621,12 @@
             transition: all 0.4s ease;
         }
 
-        .social-media a:hover {
-            background: #ffd369;
+        .social-media button:hover {
+            background: black;
             transform: translateY(-3px);
         }
 
-        .social-media a i {
+        .social-media button i {
             color: #fff;
             font-size: 18px;
         }
@@ -645,13 +645,13 @@
             border-radius: 10px;
             border: 1px solid #e5e7eb;
             font-size: 1rem;
-            background-color: rgba(255,255,255,0.8);
+            background-color: rgba(255, 255, 255, 0.39);
         }
 
         textarea { resize: none; }
 
         button {
-            background-color: var(--accent);
+            background-color: rgba(182, 182, 182, 0.16);
             color: white;
             border: none;
             padding: 12px;
@@ -662,7 +662,9 @@
         }
 
         button:hover {
-            background-color: #019fa8;
+            background-color: #ffffff;
+            color: black;
+            transition: 0.4s;
         }
 
         .copyright {
@@ -872,6 +874,101 @@
         }
 
 
+    </style>
+
+    <style>
+        .socialSection{
+            width: 60px;
+            position: fixed;
+            height: 52%;
+            /*background: white;*/
+            z-index: 100;
+            top: 0;
+            right: 10px;
+            bottom: 0;
+            margin: auto;
+            color: black;
+
+        }
+
+        /* From Uiverse.io by asgardOP */
+        .social {
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            border-radius: 50px;
+            border: none;
+            /*background: linear-gradient(120deg, #833ab4, #fd1d1d, #fcb045);*/
+            background: rgba(255, 255, 255, 0.29);
+            position: sticky;
+            z-index: 110;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px;
+            transition: 0.1s;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            /*margin: auto;*/
+        }
+        .social svg {
+            color: #000000;
+            width: 30px;
+            height: 30px;
+            z-index: 9;
+        }
+
+
+
+        .social:active {
+            transform: scale(0.85);
+        }
+
+        .social::before {
+            content: "";
+            position: absolute;
+            width: 55px;
+            height: 55px;
+            background-color: rgba(117, 117, 117, 0.5);
+            border-radius: 50px;
+            z-index: -1;
+            border: 0px solid rgba(255, 255, 255, 0.411);
+            transition: 0.4s;
+        }
+
+        .social:hover::before {
+            width: 0px;
+            height: 0px;
+        }
+        /* Hover වෙද්දී SVG color වෙනවා */
+        .social:hover svg {
+            color: #ffffff;
+            transition: 0.4s;
+        }
+
+        /* Hover වෙන එකක් එකක් වෙන background transitions */
+        .social:nth-child(1):hover {
+            background: linear-gradient(120deg, #02ff2c, #008a12);
+        }
+
+        .social:nth-child(2):hover {
+            background: linear-gradient(120deg, #833ab4, #fd1d1d, #fcb045);
+        }
+
+        .social:nth-child(3):hover {
+            background: #1877F2;
+        }
+
+        .social:nth-child(4):hover {
+            background:  #34E05C;
+        }
+
+        .social:nth-child(5):hover {
+            background: black;
+        }
+
 
     </style>
 </head>
@@ -897,6 +994,107 @@
     </nav>
 
 </header>
+
+
+<!-- social -->
+<section class="socialSection">
+    <!-- From Uiverse.io by asgardOP -->
+    <button id="whatsApp" class="social whatsApp" aria-label="WhatsApp">
+        <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                height="24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+                class="w-6 h-6 text-gray-800 dark:text-white"
+        >
+            <path
+                    clip-rule="evenodd"
+                    d="M12 4a8 8 0 0 0-6.895 12.06l.569.718-.697 2.359 2.32-.648.379.243A8 8 0 1 0 12 4ZM2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10a9.96 9.96 0 0 1-5.016-1.347l-4.948 1.382 1.426-4.829-.006-.007-.033-.055A9.958 9.958 0 0 1 2 12Z"
+                    fill-rule="evenodd"
+                    fill="currentColor"
+            ></path>
+            <path
+                    d="M16.735 13.492c-.038-.018-1.497-.736-1.756-.83a1.008 1.008 0 0 0-.34-.075c-.196 0-.362.098-.49.291-.146.217-.587.732-.723.886-.018.02-.042.045-.057.045-.013 0-.239-.093-.307-.123-1.564-.68-2.751-2.313-2.914-2.589-.023-.04-.024-.057-.024-.057.005-.021.058-.074.085-.101.08-.079.166-.182.249-.283l.117-.14c.121-.14.175-.25.237-.375l.033-.066a.68.68 0 0 0-.02-.64c-.034-.069-.65-1.555-.715-1.711-.158-.377-.366-.552-.655-.552-.027 0 0 0-.112.005-.137.005-.883.104-1.213.311-.35.22-.94.924-.94 2.16 0 1.112.705 2.162 1.008 2.561l.041.06c1.161 1.695 2.608 2.951 4.074 3.537 1.412.564 2.081.63 2.461.63.16 0 .288-.013.4-.024l.072-.007c.488-.043 1.56-.599 1.804-1.276.192-.534.243-1.117.115-1.329-.088-.144-.239-.216-.43-.308Z"
+                    fill="currentColor"
+            ></path>
+        </svg>
+    </button>
+
+    <button class="social instagram" id="instagram" aria-label="Instagram">
+        <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                height="24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+                class="w-6 h-6 text-gray-800 dark:text-white"
+        >
+            <path
+                    clip-rule="evenodd"
+                    d="M3 8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8Zm5-3a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H8Zm7.597 2.214a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2h-.01a1 1 0 0 1-1-1ZM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm-5 3a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z"
+                    fill-rule="evenodd"
+                    fill="currentColor"
+            ></path>
+        </svg>
+    </button>
+
+    <!-- Facebook -->
+    <button class="social faceBook" id="faceBook" aria-label="Facebook">
+        <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 640 640"
+                fill="currentColor"
+                height="24"
+                width="24"
+                aria-hidden="true"
+                class="w-6 h-6 text-gray-800 dark:text-white"
+        >
+            <path d="M160 96C124.7 96 96 124.7 96 160L96 480C96 515.3 124.7 544 160 544L258.2 544L258.2 398.2L205.4 398.2L205.4 320L258.2 320L258.2 286.3C258.2 199.2 297.6 158.8 383.2 158.8C399.4 158.8 427.4 162 438.9 165.2L438.9 236C432.9 235.4 422.4 235 409.3 235C367.3 235 351.1 250.9 351.1 292.2L351.1 320L434.7 320L420.3 398.2L351 398.2L351 544L480 544C515.3 544 544 515.3 544 480L544 160C544 124.7 515.3 96 480 96L160 96z"/>
+        </svg>
+    </button>
+
+    <!-- TripAdvisor -->
+    <button class="social tipAdvisor" id="tipAdvisor" aria-label="TripAdvisor">
+        <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 -96 512.2 512.2"
+                fill="currentColor"
+                height="24"
+                width="24"
+                aria-hidden="true"
+                class="w-6 h-6 text-gray-800 dark:text-white"
+        >
+            <path d="M128.2 127.9C92.7 127.9 64 156.6 64 192c0 35.4 28.7 64.1 64.1 64.1 35.4 0 64.1-28.7 64.1-64.1.1-35.4-28.6-64.1-64-64.1zm0 110c-25.3 0-45.9-20.5-45.9-45.9s20.5-45.9 45.9-45.9S174 166.7 174 192s-20.5 45.9-45.8 45.9z"/>
+            <circle cx="128.4" cy="191.9" r="31.9"></circle>
+            <path d="M384.2 127.9c-35.4 0-64.1 28.7-64.1 64.1 0 35.4 28.7 64.1 64.1 64.1 35.4 0 64.1-28.7 64.1-64.1 0-35.4-28.7-64.1-64.1-64.1zm0 110c-25.3 0-45.9-20.5-45.9-45.9s20.5-45.9 45.9-45.9S430 166.7 430 192s-20.5 45.9-45.8 45.9z"/>
+            <circle cx="384.4" cy="191.9" r="31.9"></circle>
+            <path d="M474.4 101.2l37.7-37.4h-76.4C392.9 29 321.8 0 255.9 0c-66 0-136.5 29-179.3 63.8H0l37.7 37.4C14.4 124.4 0 156.5 0 192c0 70.8 57.4 128.2 128.2 128.2 32.5 0 62.2-12.1 84.8-32.1l43.4 31.9 42.9-31.2-.5-1.2c22.7 20.2 52.5 32.5 85.3 32.5 70.8 0 128.2-57.4 128.2-128.2-.1-35.4-14.6-67.5-37.9-90.7zM368 64.8c-60.7 7.6-108.3 57.6-111.9 119.5-3.7-62-51.4-112.1-112.3-119.5 30.6-22 69.6-32.8 112.1-32.8S337.4 42.8 368 64.8zM128.2 288.2C75 288.2 32 245.1 32 192s43.1-96.2 96.2-96.2 96.2 43.1 96.2 96.2c-.1 53.1-43.1 96.2-96.2 96.2zm256 0c-53.1 0-96.2-43.1-96.2-96.2s43.1-96.2 96.2-96.2 96.2 43.1 96.2 96.2c-.1 53.1-43.1 96.2-96.2 96.2z"/>
+        </svg>
+    </button>
+
+    <!-- TikTok -->
+    <button class="social tiktok" id="tiktok" aria-label="tiktok">
+        <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 640 640"
+                fill="currentColor"
+                height="24"
+                width="24"
+                aria-hidden="true"
+                class="w-6 h-6 text-gray-800 dark:text-white"
+        >
+            <path d="M544.5 273.9C500.5 274 457.5 260.3 421.7 234.7L421.7 413.4C421.7 446.5 411.6 478.8 392.7 506C373.8 533.2 347.1 554 316.1 565.6C285.1 577.2 251.3 579.1 219.2 570.9C187.1 562.7 158.3 545 136.5 520.1C114.7 495.2 101.2 464.1 97.5 431.2C93.8 398.3 100.4 365.1 116.1 336C131.8 306.9 156.1 283.3 185.7 268.3C215.3 253.3 248.6 247.8 281.4 252.3L281.4 342.2C266.4 337.5 250.3 337.6 235.4 342.6C220.5 347.6 207.5 357.2 198.4 369.9C189.3 382.6 184.4 398 184.5 413.8C184.6 429.6 189.7 444.8 199 457.5C208.3 470.2 221.4 479.6 236.4 484.4C251.4 489.2 267.5 489.2 282.4 484.3C297.3 479.4 310.4 469.9 319.6 457.2C328.8 444.5 333.8 429.1 333.8 413.4L333.8 64L421.8 64C421.7 71.4 422.4 78.9 423.7 86.2C426.8 102.5 433.1 118.1 442.4 131.9C451.7 145.7 463.7 157.5 477.6 166.5C497.5 179.6 520.8 186.6 544.6 186.6L544.6 274z"/>
+        </svg>
+    </button>
+
+
+
+
+</section>
+
 
 <!-- home -->
 <section class="hero" id="home">
@@ -1048,7 +1246,7 @@
 
 
 <!-- contact us -->
-<footer class="contact-footer">
+<footer id="contact" class="contact-footer">
     <img class="backgroundPhoto" src="photos/nine-arch-5871882.jpg" alt="Sri Lanka Beach">
 
     <!-- Transparent Glass Overlay -->
@@ -1072,11 +1270,12 @@
             <div class="footer-col">
                 <h3>Explore</h3>
                 <ul>
-                    <li><a href="#">Tour Packages</a></li>
-                    <li><a href="#">Destinations</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#services">Service</a></li>
+                    <li><a href="#contact">Contact</a></li>
+
                 </ul>
             </div>
 
@@ -1084,15 +1283,31 @@
             <div class="footer-col">
                 <h3>Contact Information</h3>
                 <div class="social-media">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-github"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <button class="Facebook" ><i class="fab fa-facebook"></i></button>
+                    <button class="WhatsApp"><i class="fa-brands fa-whatsapp"></i></button>
+                    <button class="Tiktok"><i class="fa-brands fa-tiktok"></i></button>
+                    <button class="TripAdvisor" >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 -96 512.2 512.2"
+                            fill="currentColor"
+                            height="18"
+                            width="18"
+                            aria-hidden="true"
+                            class="w-6 h-6 text-gray-800 dark:text-white"
+                        >
+                            <path d="M128.2 127.9C92.7 127.9 64 156.6 64 192c0 35.4 28.7 64.1 64.1 64.1 35.4 0 64.1-28.7 64.1-64.1.1-35.4-28.6-64.1-64-64.1zm0 110c-25.3 0-45.9-20.5-45.9-45.9s20.5-45.9 45.9-45.9S174 166.7 174 192s-20.5 45.9-45.8 45.9z"/>
+                            <circle cx="128.4" cy="191.9" r="31.9"></circle>
+                            <path d="M384.2 127.9c-35.4 0-64.1 28.7-64.1 64.1 0 35.4 28.7 64.1 64.1 64.1 35.4 0 64.1-28.7 64.1-64.1 0-35.4-28.7-64.1-64.1-64.1zm0 110c-25.3 0-45.9-20.5-45.9-45.9s20.5-45.9 45.9-45.9S430 166.7 430 192s-20.5 45.9-45.8 45.9z"/>
+                            <circle cx="384.4" cy="191.9" r="31.9"></circle>
+                            <path d="M474.4 101.2l37.7-37.4h-76.4C392.9 29 321.8 0 255.9 0c-66 0-136.5 29-179.3 63.8H0l37.7 37.4C14.4 124.4 0 156.5 0 192c0 70.8 57.4 128.2 128.2 128.2 32.5 0 62.2-12.1 84.8-32.1l43.4 31.9 42.9-31.2-.5-1.2c22.7 20.2 52.5 32.5 85.3 32.5 70.8 0 128.2-57.4 128.2-128.2-.1-35.4-14.6-67.5-37.9-90.7zM368 64.8c-60.7 7.6-108.3 57.6-111.9 119.5-3.7-62-51.4-112.1-112.3-119.5 30.6-22 69.6-32.8 112.1-32.8S337.4 42.8 368 64.8zM128.2 288.2C75 288.2 32 245.1 32 192s43.1-96.2 96.2-96.2 96.2 43.1 96.2 96.2c-.1 53.1-43.1 96.2-96.2 96.2zm256 0c-53.1 0-96.2-43.1-96.2-96.2s43.1-96.2 96.2-96.2 96.2 43.1 96.2 96.2c-.1 53.1-43.1 96.2-96.2 96.2z"/>
+                        </svg>
+                    </button>
+                    <button class="Instagram" ><i class="fab fa-instagram"></i></button>
                 </div>
                 <ul>
                     <li><i class="fas fa-map-marker-alt"></i> Colombo, Sri Lanka</li>
-                    <li><i class="fas fa-envelope"></i> travel@srilanka.lk</li>
+                    <li><i class="fas fa-envelope"></i> beyondlankatour@gmail.com</li>
                     <li><i class="fas fa-phone"></i> +94 70 77 7777</li>
                 </ul>
             </div>
@@ -1175,11 +1390,11 @@
 
 <script>
     const heroTexts = [
-        "🌴 Discover Heaven in Every Sunrise",
-        "🏝 Where Nature Whispers Serenity",
-        "☀ Unwind in the Heart of Paradise",
-        "🌊 Feel the Magic of Tropical Bliss",
-        "🌺 A Journey Beyond Ordinary Beauty"
+        "Discover Heaven in Every Sunrise",
+        "Where Nature Whispers Serenity",
+        "Unwind in the Heart of Paradise",
+        "Feel the Magic of Tropical Bliss",
+        "A Journey Beyond Ordinary Beauty"
     ];
 
     let textIndex = 0;
@@ -1210,6 +1425,78 @@
     // start typing effect
     typeText();
 </script>
+<script>
+    window.addEventListener('scroll', function () {
+        const contact = document.getElementById('contact');
+        const social = document.querySelector('.socialSection');
+        const contactTop = contact.getBoundingClientRect().top;
+
+        if (contactTop < window.innerHeight - 100) {
+            // Contact section එක visible වෙද්දී hide වෙනවා
+            social.style.opacity = '0';
+            social.style.pointerEvents = 'none';
+            social.style.transition = 'opacity 0.5s ease';
+        } else {
+            // නැත්නම් නැවත පෙන්වන්න
+            social.style.opacity = '1';
+            social.style.pointerEvents = 'auto';
+        }
+    });
+    const arr = [
+        document.querySelector('.Instagram'),
+        document.querySelector('.Tiktok'),
+        document.querySelector('.Facebook'),
+        document.querySelector('.TripAdvisor'),
+        document.querySelector('.WhatsApp')
+    ];
+
+    arr.forEach(icon => {
+        icon.addEventListener('click', () => {
+            if (icon.classList.contains('Instagram')) {
+                window.open('https://www.instagram.com/beyondlanka?igsh=MXgwaXJ3N3VxZmVyag%3D%3D&utm_source=qr', '_blank');
+            } else if (icon.classList.contains('Tiktok')) {
+                window.open('https://www.tiktok.com/@beyond.lanka4?_t=ZS-90kw3tuJiIj&_r=1', '_blank');
+            } else if (icon.classList.contains('Facebook')) {
+                window.open('https://www.facebook.com/profile.php?id=61582341166612', '_blank');
+            } else if (icon.classList.contains('TripAdvisor')) {
+                window.open('https://www.tripadvisor.com/Profile/Beyondlanka', '_blank');
+            } else if (icon.classList.contains('WhatsApp')) {
+                window.open('https://whatsapp.com/biz/', '_blank');
+            }
+        });
+    });
+
+
+</script>
+<script>
+    const buttons = document.querySelectorAll('.social');
+
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            switch(button.id) {
+                case 'whatsApp':
+                    window.open('https://wa.me/+94784493748', '_blank');
+                    break;
+                case 'instagram':
+                    window.open('https://www.instagram.com/beyondlanka?igsh=MXgwaXJ3N3VxZmVyag%3D%3D&utm_source=qr', '_blank');
+                    break;
+                case 'faceBook':
+                    window.open('https://www.facebook.com/profile.php?id=61582341166612', '_blank');
+                    break;
+                case 'tipAdvisor':
+                    window.open('https://www.tripadvisor.com/Profile/Beyondlanka', '_blank');
+                    break;
+                case 'tiktok':
+                    window.open('https://www.tiktok.com/@beyond.lanka4?_t=ZS-90kw3tuJiIj&_r=1', '_blank');
+                    break;
+                default:
+                    break;
+            }
+        });
+    });
+</script>
+
+
 
 </body>
 </html>

@@ -23,8 +23,8 @@
         *{box-sizing:border-box;margin:0;padding:0}
         html,body{height:100%}
         body{
-        /background: linear-gradient(180deg, #f7f7ff 0%, rgba(0, 67, 253, 0.88) 100%);/
-        /color:#fff;/
+        background: #ededed;
+        /*/color:#fff;*/
         -webkit-font-smoothing:antialiased;
             -moz-osx-font-smoothing:grayscale;
         }
@@ -302,7 +302,7 @@
         }
         .card-details h3{
             margin-bottom: 15px;
-            margin-top: 50px;
+            /*margin-top: 50px;*/
             font-weight: 700;
             font-size: 1.75rem;
             line-height: 1.2;
@@ -313,10 +313,18 @@
         }
         .card-details p{
             font-size: 16px;
-            line-height: 30px;
+            /*line-height: 30px;*/
+            text-align: left;
             color: #444;
             font-weight: 400;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
+        }
+        .card-details ul{
+            text-align: left;
+            margin-bottom: 10px;
+        }
+        .card-details li {
+            margin-bottom: 5px;
         }
         .read-more-btn {
             width: 50px;
@@ -345,32 +353,34 @@
             visibility: visible;
         }
 
-        /* ===== Responsive ===== */
-        @media (max-width: 992px) {
-            .creative-cards .container .row .card-column {
-                flex: 0 0 auto;
-                width: 50%;
-                margin-bottom: 40px;
-            }
-        }
-        @media (max-width: 480px) {
-            .creative-cards .container .row .card-column {
-                flex: 0 0 auto;
-                width: 100%;
-                margin-bottom: 20px;
-            }
-            .card-details{
-                width: 100%;
-            }
-            .read-more-btn{
-                transform: translateX(0px);
-                opacity: 1;
-                visibility: visible;
-            }
+        .whatsapp-container {
+            text-align: center; /* centers the button horizontally */
+            margin-top: 15px;
         }
 
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #25D366;
+            color: white;
+            padding: 16px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #1ebe5d;
+            transform: scale(1.05); /* adds a small hover zoom effect */
+        }
+
+
+
+
         .service-section {
-        /background: radial-gradient(circle at top, #0f0f0f, #000);/
+        /*/background: radial-gradient(circle at top, #0f0f0f, #000);/*/
         padding: 100px 40px;
             color: #fff;
             text-align: center;
@@ -496,14 +506,14 @@
         /* ---------- contact footer ---------- */
         .contact-footer {
             position: relative;
-            margin-top: 100px; /* space before footer */
+            /*margin-top: 10px; !* space before footer *!*/
             color: white;
-        /padding: 100px 0 40px;/
-        overflow: hidden;
+            /*/padding: 100px 0 40px;/*/
+            overflow: hidden;
 
-        /background: rgba(255, 255, 255, 0.15);/
-        /backdrop-filter: blur(4px);/
-        /box-shadow: rgb(204, 219, 232) 30px 30px 10px 30px inset, rgba(255, 255, 255, 0.75) -3px -3px 6px 1px inset;/
+        /*/background: rgba(255, 255, 255, 0.15);/*/
+        /*/backdrop-filter: blur(4px);/*/
+        /*/box-shadow: rgb(204, 219, 232) 30px 30px 10px 30px inset, rgba(255, 255, 255, 0.75) -3px -3px 6px 1px inset;/*/
         background-color: rgba(0, 0, 0, 0.38);
         }
         .backgroundPhoto {
@@ -514,8 +524,9 @@
             height: 100%;
             object-fit: cover;
             z-index: -2;
-            filter: brightness(0.55);
-            box-shadow: rgb(204, 219, 232) 30px 30px 10px 30px inset, rgba(255, 255, 255, 0.75) -3px -3px 6px 1px inset;
+            /*filter: brightness(0.55);*/
+            /*box-shadow: rgb(204, 219, 232) 30px 30px 10px 30px inset, rgba(255, 255, 255, 0.75) -3px -3px 6px 1px inset;*/
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 
         }
 
@@ -526,24 +537,30 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(4px);
+            /*background: white;*/
+            background: linear-gradient(180deg, rgba(242, 242, 242, 1) 0%, rgba(237, 237, 237, 0.58) 12%, rgba(255, 255, 255, 0.44) 25%, rgba(255, 255, 255, 0) 39%, rgba(242, 242, 242, 0) 100%);
             z-index: -1;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+            backdrop-filter: blur(2px);
+            /*pointer-events: none;*/
         }
+
+
 
         .contact {
             text-align: center;
-            top: 0;
-        /margin-bottom: 60px;/
-        padding-bottom: 60px;
-        /border: 10px solid black;/
-        /background: rgba(255, 255, 255, 0.15);/
-        /background: repeating-linear-gradient(/
+            top: -10px;
+            /*/margin-bottom: 60px;/*/
+            padding-bottom: 10vh;
+            /*/border: 10px solid black;/*/
+            /*/background: rgba(255, 255, 255, 0.15);/*/
+            /*/background: repeating-linear-gradient(/*/
             /*        to bottom,*/
             /*        rgba(255, 255, 255, 0.32) 0%,*/
             /*        rgba(255, 255, 255, 0.15) 100%*/
-        /);/
-        /backdrop-filter: blur(4px);/
+            /*/);/*/
+            /*/backdrop-filter: blur(4px);/*/
+            /*background: linear-gradient(to bottom, #ffffff 0%, rgba(232, 232, 232, 0) 100%);*/
         }
 
         .contact h1 {
@@ -551,7 +568,8 @@
             font-weight: 700;
             color: #019fa8;
             text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.6);
-            padding: 50px;
+            top: -10px;
+
         }
 
         .contact p {
@@ -566,7 +584,7 @@
             display: grid;
             justify-content: center;
             grid-template-columns: repeat(4, 1fr);
-            gap: 40px;
+            /*gap: 40px;*/
             padding: 2% 2%;
         /*/background: rgba(255, 255, 255, 0.15);/*/
         /*/backdrop-filter: blur(4px);/*/
@@ -672,13 +690,13 @@
 
         .copyright {
             display: flex;
-            height: 5%;
+            /*height: 5%;*/
             justify-content: center;
             align-items: center;
             text-align: center;
             font-size: 0.9rem;
             color: #ccc;
-            margin-bottom: 40px;
+            /*margin-bottom: 40px;*/
             border-top: 1px solid rgba(255, 255, 255, 0.2);
             /*padding-top: 30px;*/
         }
@@ -693,6 +711,30 @@
 
 
 
+
+        /* ===== Responsive ===== */
+        @media (max-width: 992px) {
+            .creative-cards .container .row .card-column {
+                flex: 0 0 auto;
+                width: 50%;
+                margin-bottom: 40px;
+            }
+        }
+        @media (max-width: 480px) {
+            .creative-cards .container .row .card-column {
+                flex: 0 0 auto;
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            .card-details{
+                width: 100%;
+            }
+            .read-more-btn{
+                transform: translateX(0px);
+                opacity: 1;
+                visibility: visible;
+            }
+        }
         @media (min-width: 900px) {
             .services-grid {
                 grid-template-columns: repeat(3, 1fr);
@@ -701,8 +743,6 @@
                 grid-column: 2; /* center column */
             }
         }
-
-
 
 
 
@@ -964,7 +1004,7 @@
 
         /* Hover වෙන එකක් එකක් වෙන background transitions */
         .social:nth-child(1):hover {
-            background: linear-gradient(120deg, #02ff2c, #008a12);
+            background: #1ebe5d;
         }
 
         .social:nth-child(2):hover {
@@ -1202,7 +1242,13 @@
                         <img class="light-icon" src="https://i.ibb.co/fV0GzDqj/construction.png" alt="icon" />
                     </div>
                     <h3><a href="#">Airport Transfer</a></h3>
-                    <p>Experience smooth, punctual airport transfers with our professional chauffeurs.</p>
+
+                    <ul>
+                        <li>24/7 pick-up and drop-off from Bandaranaike International Airport</li>
+                        <li>Comfortable, well-conditioned vehicles</li>
+                        <li>Experienced, friendly drivers</li>
+                        <li>Affordable, fixed rates with no hidden charges</li>
+                    </ul>
                     <a class="read-more-btn" href="#"><i class="fa-solid fa-angles-right"></i></a>
                 </div>
             </div>
@@ -1214,7 +1260,14 @@
                         <img class="light-icon" src="https://i.ibb.co/KjGz3dmZ/skyline.png" alt="icon" />
                     </div>
                     <h3><a href="#">Point to Point Transportation</a></h3>
-                    <p>Travel between destinations in total comfort with our reliable point-to-point service.</p>
+                    <ul>
+                        <li>Direct, private transfers between any two locations in Sri Lanka.</li>
+                        <li>Flexible scheduling to match your travel plans.</li>
+                        <li>Clean, good conditioned vehicles.</li>
+                        <li>Professional drivers with local knowledge.</li>
+                        <li>Affordable pricing with no hidden fees.</li>
+                    </ul>
+
                     <a class="read-more-btn" href="#"><i class="fa-solid fa-angles-right"></i></a>
                 </div>
             </div>
@@ -1226,7 +1279,10 @@
                         <img class="light-icon" src="https://i.ibb.co/whkhVgQz/best-practice.png" alt="icon" />
                     </div>
                     <h3><a href="#">Multi-Day Tours</a></h3>
-                    <p>Immerse yourself in Sri Lanka’s culture and beauty through multi-day guided tours.</p>
+                    <p>Discover the true beauty of Sri Lanka with our carefully curated Multi-Day Tours. At Beyond Lanka, we offer immersive travel experiences that span several days, allowing you to explore the island's diverse landscapes, rich culture, and hidden gems at your own pace.
+                        <br>
+                        <br>
+                        Whether it’s the misty mountains of Ella, the ancient cities of Anuradhapura, or the golden beaches of Mirissa — our tour packages are designed for comfort, adventure, and unforgettable memories.</p>
                     <a class="read-more-btn" href="#"><i class="fa-solid fa-angles-right"></i></a>
                 </div>
             </div>
@@ -1238,7 +1294,7 @@
                         <img class="light-icon" src="https://i.ibb.co/fV0GzDqj/construction.png" alt="icon" />
                     </div>
                     <h3><a href="#">City Tours</a></h3>
-                    <p>Discover the hidden gems of Sri Lanka’s iconic cities with expert local guides.</p>
+                    <p>Explore the vibrant life, history, and culture of Sri Lanka’s cities with Beyond Lanka’s City Tours. Whether you're wandering through the colonial streets of Galle, discovering the bustle of Colombo, or soaking in the charm of Kandy, our guided city tours offer the perfect mix of sightseeing, local experiences, and hidden spots.</p>
                     <a class="read-more-btn" href="#"><i class="fa-solid fa-angles-right"></i></a>
                 </div>
             </div>
@@ -1250,18 +1306,33 @@
                         <img class="light-icon" src="https://i.ibb.co/whkhVgQz/best-practice.png" alt="icon" />
                     </div>
                     <h3><a href="#">Private Tours</a></h3>
-                    <p>Enjoy Sri Lanka your way with our exclusive private tours. Fully customizable itineraries and authentic local experiences.</p>
+                    <ul>
+                        <li>Fully customizable itineraries.</li>
+                        <li>Private vehicle with a dedicated driver-guide.</li>
+                        <li>Flexible schedules and stops.</li>
+                        <li>Authentic local experiences tailored to you</li>
+                    </ul>
                     <a class="read-more-btn" href="#"><i class="fa-solid fa-angles-right"></i></a>
                 </div>
             </div>
         </div>
+    </div>
+    <!-- WhatsApp Chat Button (centered) -->
+    <div class="whatsapp-container">
+        <a
+                href="https://wa.me/94771234567"
+                target="_blank"
+                class="whatsapp-btn"
+        >
+            <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+        </a>
     </div>
 </section>
 
 
 <!-- contact us -->
 <footer id="contact" class="contact-footer">
-    <img class="backgroundPhoto" src="photos/nine-arch-5871882.jpg" alt="Sri Lanka Beach">
+    <img class="backgroundPhoto" src="photos/contactBg.jpg" alt="Sri Lanka Beach">
 
     <!-- Transparent Glass Overlay -->
     <div class="glass-overlay"></div>

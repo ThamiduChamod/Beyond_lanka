@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Beyond Lanka</title>
     <link rel="icon" href="photos/watermarked-7cdec4aa-2279-41c6-af2e-a5e5833746eb.png" type="image/png" style="width: 150px">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -39,8 +41,8 @@
             position: fixed;
             top:0;
             z-index: 100;
-            border-radius: 20px;
-            background: rgba(255, 255, 255, 0.2); /* half-transparent white */
+            /*border-radius: 20px;*/
+            background: rgba(151, 149, 149, 0); /* half-transparent white */
             backdrop-filter: blur(10px); /* 💎 glass blur effect */
             -webkit-backdrop-filter: blur(10px); /* Safari support */
         /border-bottom: 1px solid rgba(255, 255, 255, 0.2);/
@@ -566,7 +568,7 @@
         .contact h1 {
             font-size: 3rem;
             font-weight: 700;
-            color: #019fa8;
+            color: #ffd369;
             text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.6);
             top: -10px;
 
@@ -707,44 +709,6 @@
             color: white;
 
         }
-
-
-
-
-
-        /* ===== Responsive ===== */
-        @media (max-width: 992px) {
-            .creative-cards .container .row .card-column {
-                flex: 0 0 auto;
-                width: 50%;
-                margin-bottom: 40px;
-            }
-        }
-        @media (max-width: 480px) {
-            .creative-cards .container .row .card-column {
-                flex: 0 0 auto;
-                width: 100%;
-                margin-bottom: 20px;
-            }
-            .card-details{
-                width: 100%;
-            }
-            .read-more-btn{
-                transform: translateX(0px);
-                opacity: 1;
-                visibility: visible;
-            }
-        }
-        @media (min-width: 900px) {
-            .services-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            .services-grid .service-card:nth-child(5) {
-                grid-column: 2; /* center column */
-            }
-        }
-
-
 
         /* ====== Section ====== */
         .media-gallery {
@@ -928,9 +892,6 @@
         }
 
 
-    </style>
-
-    <style>
         .socialSection{
             width: 60px;
             position: fixed;
@@ -1023,8 +984,93 @@
             background: black;
         }
 
+        /* ======== MOBILE MENU ======== */
+        .menu-toggle {
+            display: none;
+            font-size: 26px;
+            cursor: pointer;
+        }
 
+
+        /* ===== Responsive ===== */
+        @media (max-width: 992px) {
+            .creative-cards .container .row .card-column {
+                flex: 0 0 auto;
+                width: 50%;
+                margin-bottom: 40px;
+            }
+        }
+
+        @media (min-width: 900px) {
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .services-grid .service-card:nth-child(5) {
+                grid-column: 2; /* center column */
+            }
+        }
+        @media (max-width: 480px) {
+            .menu-toggle {
+                display: block;
+                z-index: 110;
+            }
+
+            nav.nav {
+                position: absolute;
+                top: 70px;
+                right: 0;
+                background: rgba(255, 255, 255, 0.75);
+                flex-direction: column;
+                align-items: flex-start;
+                /*width: 100%;*/
+                gap: 20px;
+                padding: 20px;
+                display: none;
+                box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            }
+
+            nav.nav.active {
+                display: flex;
+            }
+
+            nav.nav a {
+                color: #000;
+                font-size: 18px;
+            }
+
+            .hero{
+                height: 100%;
+            }
+            .aboutImgContainer{
+                display: none;
+            }
+
+            .creative-cards .container .row .card-column {
+                flex: 0 0 auto;
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            .card-details{
+                width: 100%;
+            }
+            .read-more-btn{
+                transform: translateX(0px);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .footer-container {
+                display: grid;
+                grid-template-columns: 1fr;
+                place-items: center; /* horizontally & vertically center */
+                text-align: center;  /* center text inside */
+                gap: 20px; /* optional spacing between items */
+            }
+
+
+        }
     </style>
+
 </head>
 <body>
 <!-- header -->
@@ -1038,6 +1084,11 @@
             <span>Travel • Culture • Nature</span>
         </div>
     </div>
+    <!-- Menu toggle icon -->
+    <div class="menu-toggle">
+        &#9776;
+    </div>
+
 
     <nav class="nav" aria-label="Main navigation">
         <a href="#home">Home</a>
@@ -1417,6 +1468,16 @@
 
 
 <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('nav.nav');
+
+    menuToggle.addEventListener('click', () => {
+        nav.classList.toggle('active');
+    });
+
+
+
+
     const lightbox = document.getElementById("lightbox");
     const lightboxImg = document.getElementById("lightbox-img");
     const lightboxVideo = document.getElementById("lightbox-video");

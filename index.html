@@ -30,6 +30,7 @@
         -webkit-font-smoothing:antialiased;
             -moz-osx-font-smoothing:grayscale;
         }
+
         /* ---------- Header / Nav ---------- */
         header{
             height:var(--nav-height);
@@ -992,13 +993,13 @@
             background: black;
         }
 
+
         /* ======== MOBILE MENU ======== */
         .menu-toggle {
             display: none;
             font-size: 26px;
             cursor: pointer;
         }
-
 
         /* ===== Responsive ===== */
         @media (max-width: 992px) {
@@ -1090,6 +1091,7 @@
 
 </head>
 <body>
+
 <!-- header -->
 <header>
     <div class="brand">
@@ -1468,10 +1470,10 @@
             <!-- Column 4 -->
             <div class="footer-col">
                 <h3>Send Us a Message</h3>
-                <form class="contactFrom" id="contactForm" onsubmit="handleSubmit(event)">
-                    <input type="text" name="name" placeholder="Your Name" required>
-                    <input type="email" name="email" placeholder="Your Email" required>
-                    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                <form class="contactFrom" id="contactForm" onsubmit="event.preventDefault(); sendMail();">
+                    <input id="name" type="text" name="name" placeholder="Your Name" required>
+                    <input id="email" type="email" name="email" placeholder="Your Email" required>
+                    <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
                     <button type="submit">Send Message</button>
                 </form>
             </div>
@@ -1482,6 +1484,33 @@
         </div>
     </div>
 </footer>
+
+
+<!-- EmailJS Library -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script type="text/javascript">
+    (function() {
+        emailjs.init("tLY1j2n2Ht1kedVuC"); // ✅ Your Public Key
+    })();
+
+    function sendMail() {
+        let params = {
+            name: document.getElementById("name").value,
+            email: document.getElementById("email").value,
+            message: document.getElementById("message").value,
+        };
+
+        emailjs.send("service_2m5t9qm", "template_cza5eks", params)
+            .then(function(response) {
+                alert("✅ Email sent successfully!");
+                console.log("SUCCESS!", response.status, response.text);
+                document.getElementById("contactForm").reset();
+            }, function(error) {
+                alert("❌ Failed to send email. Please try again.");
+                console.error("FAILED...", error);
+            });
+    }
+</script>
 
 
 <script>
@@ -1550,7 +1579,6 @@
         scrollContainer.scrollBy({ left: 350, behavior: "smooth" });
     };
 </script>
-
 <script>
     const heroTexts = [
         "Discover Heaven in Every Sunrise",
@@ -1658,8 +1686,35 @@
         });
     });
 </script>
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+    // Initialize EmailJS with your Public Key
+    (function() {
+        emailjs.init("tLY1j2n2Ht1kedVuC"); // ✅ No need for object syntax
+    })();
 
+    function sendMail() { // ✅ better to name it sendMail (not sentMail)
+        // Get form field values
+        let params = {
+            name: document.getElementById("name").value,
+            email: document.getElementById("email").value,
+            message: document.getElementById("message").value,
+        };
 
+        // Use your EmailJS service & template IDs
+        emailjs.send("service_2m5t9qm", "template_cza5eks", params)
+            .then(function(response) {
+                alert("✅ Email sent successfully!");
+                console.log("SUCCESS!", response.status, response.text);
+                document.getElementById("contactForm").reset(); // Clear form
+            }, function(error) {
+                alert("❌ Failed to send email. Please try again.");
+                console.error("FAILED...", error);
+            });
+    }
+</script>
 
 </body>
 </html>

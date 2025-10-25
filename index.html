@@ -660,6 +660,12 @@
             display: flex;
             flex-direction: column;
             gap: 16px;
+            color: white;
+        }
+        #contactForm input::placeholder,
+        #contactForm textarea::placeholder {
+            color: white;            /* 🟡 make placeholder text white */
+            opacity: 1;              /* ensure it's not faded */
         }
 
         input, textarea {
@@ -671,7 +677,11 @@
             background-color: rgba(255, 255, 255, 0.39);
         }
 
-        textarea { resize: none; }
+        textarea {
+            resize: none;
+            color: white;
+        }
+
 
         button {
             background-color: rgba(182, 182, 182, 0.16);
@@ -1380,7 +1390,7 @@
     <!-- WhatsApp Chat Button (centered) -->
     <div class="whatsapp-container">
         <a
-                href="https://wa.me/94771234567"
+                href="https://wa.me/+94703861194"
                 target="_blank"
                 class="whatsapp-btn"
         >
@@ -1451,16 +1461,16 @@
                     <button class="Instagram" ><i class="fab fa-instagram"></i></button>
                 </div>
                 <ul>
-                    <li><i class="fas fa-map-marker-alt"></i> Colombo, Sri Lanka</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Matara, Sri Lanka</li>
                     <li><i class="fas fa-envelope"></i> beyondlankatour@gmail.com</li>
-                    <li><i class="fas fa-phone"></i> +94 70 77 7777</li>
+                    <li><i class="fas fa-phone"></i> +94 70 38 61 194</li>
                 </ul>
             </div>
 
             <!-- Column 4 -->
             <div class="footer-col">
                 <h3>Send Us a Message</h3>
-                <form id="contactForm" onsubmit="handleSubmit(event)">
+                <form class="contactFrom" id="contactForm" onsubmit="handleSubmit(event)">
                     <input type="text" name="name" placeholder="Your Name" required>
                     <input type="email" name="email" placeholder="Your Email" required>
                     <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
@@ -1616,7 +1626,7 @@
             } else if (icon.classList.contains('TripAdvisor')) {
                 window.open('https://www.tripadvisor.com/Profile/Beyondlanka', '_blank');
             } else if (icon.classList.contains('WhatsApp')) {
-                window.open('https://whatsapp.com/biz/', '_blank');
+                window.open('https://wa.me/+94703861194', '_blank');
             }
         });
     });
@@ -1630,7 +1640,7 @@
         button.addEventListener('click', () => {
             switch(button.id) {
                 case 'whatsApp':
-                    window.open('https://wa.me/+94784493748', '_blank');
+                    window.open('https://wa.me/+94703861194', '_blank');
                     break;
                 case 'instagram':
                     window.open('https://www.instagram.com/beyondlanka?igsh=MXgwaXJ3N3VxZmVyag%3D%3D&utm_source=qr', '_blank');

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tour Packages</title>
+    <link rel="icon" href="photos/watermarked-7cdec4aa-2279-41c6-af2e-a5e5833746eb.png" type="image/png" style="width: 150px">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/contactUs.css">
+
+    <style>
+        /* ---------- Reset ---------- */
+        *{box-sizing:border-box;margin:0;padding:0}
+        html,body{height:100%}
+        body{
+            background: #ededed;
+            /*/color:#fff;*/
+            -webkit-font-smoothing:antialiased;
+            -moz-osx-font-smoothing:grayscale;
+        }
+        .hero {
+            width: 100%;
+            height: 400px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero-slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1.8s ease-in-out;
+        }
+
+        .hero-slide.active {
+            opacity: 1;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: #fff;
+            text-align: center;
+        }
+
+
+        .breadcrumb {
+            margin-top: 50px;
+            font-size: 14px;
+            letter-spacing: 2px;
+        }
+
+        .hero-title {
+            margin-top: 10px;
+            font-size: 48px;
+            font-weight: 800;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Poppins", sans-serif;
+            background: #fff;
+            color: #0a1a33;
+        }
+
+        .package-section {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .small-title {
+            font-size: 14px;
+            letter-spacing: 2px;
+            color: #1a3a5f;
+            margin-bottom: 10px;
+        }
+
+        .main-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 50px;
+            line-height: 1.3;
+        }
+
+        /* ---- GRID FIX: 3 CARDS PER ROW ---- */
+        .package-container {
+            display: flex;
+            justify-content: center;
+            gap: 35px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* ---- BIGGER CARDS ---- */
+        .card {
+            flex: 1 1 calc(33.33% - 35px); /* exactly 3 cards per row */
+            max-width: 350px; /* card becomes bigger */
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .card img {
+            width: 100%;
+            height: 220px;  /* bigger image */
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 20px;
+            text-align: left;
+        }
+
+        .card-content h3 {
+            font-size: 20px;      /* bigger title */
+            margin-bottom: 10px;
+        }
+
+        .card-content p {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* Mobile Menu */
+        .menu-toggle {
+            display: none;
+            color: #fff;
+            font-size: 26px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .nav.nav a {
+            {
+                position: absolute;
+                top: 65px;
+                right: 0;
+                background: rgba(0, 0, 0, 0.90);
+                width: 200px;
+                height: 0;
+                overflow: hidden;
+                flex-direction: column;
+                text-align: center;
+                transition: 0.4s ease;
+            }
+
+                .nav.nav a.open {
+                    height: 250px;
+                    padding-top: 20px;
+                }
+
+                .menu-toggle {
+                    display: block;
+                }
+            }
+        }
+
+
+
+    </style>
+</head>
+<body>
+
+
+<!-- header -->
+<header>
+    <div class="brand">
+        <div class="logo">
+            <img class="logoImg" src="photos/bgremoveLogo.png">
+        </div>
+        <div class="title">
+            <h1>Beyond Lanka</h1>
+            <span>Travel • Culture • Nature</span>
+        </div>
+    </div>
+    <!-- Menu toggle icon -->
+    <div class="menu-toggle">
+        &#9776;
+    </div>
+
+
+    <nav class="nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="index.html">About</a>
+        <a href="index.html">Services</a>
+        <a href="packages.html">Packages</a>
+        <a href="index.html">Gallery</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+</header>
+
+<!-- TOP HERO SECTION -->
+<!--<section class="hero">-->
+<!--    <div class="hero-overlay"></div>-->
+<!--    <div class="hero-content">-->
+<!--        <p class="breadcrumb">HOME  |  TOUR PACKAGES</p>-->
+<!--        <h1 class="hero-title">TOUR PACKAGES</h1>-->
+<!--    </div>-->
+<!--</section>-->
+
+<section class="hero">
+    <div class="hero-slide active" style="background-image: url('photos/package9.jpg');"></div>
+    <div class="hero-slide" style="background-image: url('photos/package8.jpg');"></div>
+    <div class="hero-slide" style="background-image: url('photos/package7.jpg');"></div>
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+        <p class="breadcrumb">HOME | TOUR PACKAGES</p>
+        <h1 class="hero-title">TOUR PACKAGES</h1>
+    </div>
+</section>
+
+
+
+<section class="package-section">
+    <h4 class="small-title">SELECT TOUR PACKAGES</h4>
+    <h1 class="main-title">Drive Through<br>Unforgettable Experiences</h1>
+
+    <div class="package-container">
+
+        <!-- Card 1 -->
+        <div class="card">
+            <img src="photos/package1.jpg?auto=format&fit=crop&w=800&q=60" alt="">
+            <div class="card-content">
+                <h3>Half-Day City Tour</h3>
+                <p>Experience Sri Lanka in comfort with our tailored car rental tours.
+                    Safe, scenic journeys to cultural landmarks, beaches, and beyond.</p>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card">
+            <img src="photos/package2.jpg?auto=format&fit=crop&w=800&q=60" alt="">
+            <div class="card-content">
+                <h3>Full-Day Scenic Getaway</h3>
+                <p>Experience Sri Lanka in comfort with our tailored car rental tours.
+                    Safe, scenic journeys to cultural landmarks, beaches, and beyond.</p>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card">
+            <img src="photos/package3.jpg?auto=format&fit=crop&w=800&q=60" alt="">
+            <div class="card-content">
+                <h3>Weekend Explorer Package</h3>
+                <p>Experience Sri Lanka in comfort with our tailored car rental tours.
+                    Safe, scenic journeys to cultural landmarks, beaches, and beyond.</p>
+            </div>
+        </div>
+
+        <!-- Card 4 (New) -->
+        <div class="card">
+            <img src="photos/package4.jpg?auto=format&fit=crop&w=800&q=60" alt="">
+            <div class="card-content">
+                <h3>Airport Transfer</h3>
+                <p>Experience Sri Lanka in comfort with our tailored car rental tours.
+                    Safe, scenic journeys to cultural landmarks, beaches, and beyond.</p>
+            </div>
+        </div>
+
+        <!-- Card 5 (New) -->
+        <div class="card">
+            <img src="photos/package5.jpg?auto=format&fit=crop&w=800&q=60" alt="">
+            <div class="card-content">
+                <h3>Coastal Adventure Tour</h3>
+                <p>Experience Sri Lanka in comfort with our tailored car rental tours.
+                    Safe, scenic journeys to cultural landmarks, beaches, and beyond.</p>
+            </div>
+        </div>
+
+        <!-- Card 6 (New) -->
+        <div class="card">
+            <img src="photos/package6.jpg?auto=format&fit=crop&w=800&q=60" alt="">
+            <div class="card-content">
+                <h3>Hill Country Escape</h3>
+                <p>Experience Sri Lanka in comfort with our tailored car rental tours.
+                    Safe, scenic journeys to cultural landmarks, beaches, and beyond.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- contact us -->
+<footer id="contact" class="contact-footer">
+    <img class="backgroundPhoto" src="photos/contactBg.jpg" alt="Sri Lanka Beach">
+
+    <!-- Transparent Glass Overlay -->
+    <div class="glass-overlay"></div>
+
+    <div class="contact">
+        <h1>Contact Us</h1>
+        <p>We’re here to help you explore the beauty of Sri Lanka. Get in touch for travel advice, bookings, or media inquiries.</p>
+    </div>
+
+    <div class="container">
+        <div class="footer-container">
+
+            <!-- Column 1 -->
+            <div class="footer-col">
+                <h3>Beyond Lanka</h3>
+                <img class="contactLogoImg" src="photos/watermarked-7cdec4aa-2279-41c6-af2e-a5e5833746eb.png" alt="Logo">
+            </div>
+
+            <!-- Column 2 -->
+            <div class="footer-col">
+                <h3>Explore</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#services">Service</a></li>
+                    <li><a href="#contact">Contact</a></li>
+
+                </ul>
+            </div>
+
+            <!-- Column 3 -->
+            <div class="footer-col">
+                <h3>Contact Information</h3>
+                <div class="social-media">
+                    <button class="Facebook" ><i class="fab fa-facebook"></i></button>
+                    <button class="WhatsApp"><i class="fa-brands fa-whatsapp"></i></button>
+                    <button class="Tiktok"><i class="fa-brands fa-tiktok"></i></button>
+                    <button class="TripAdvisor" >
+                        <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 -96 512.2 512.2"
+                                fill="currentColor"
+                                height="18"
+                                width="18"
+                                aria-hidden="true"
+                                class="w-6 h-6 text-gray-800 dark:text-white"
+                        >
+                            <path d="M128.2 127.9C92.7 127.9 64 156.6 64 192c0 35.4 28.7 64.1 64.1 64.1 35.4 0 64.1-28.7 64.1-64.1.1-35.4-28.6-64.1-64-64.1zm0 110c-25.3 0-45.9-20.5-45.9-45.9s20.5-45.9 45.9-45.9S174 166.7 174 192s-20.5 45.9-45.8 45.9z"/>
+                            <circle cx="128.4" cy="191.9" r="31.9"></circle>
+                            <path d="M384.2 127.9c-35.4 0-64.1 28.7-64.1 64.1 0 35.4 28.7 64.1 64.1 64.1 35.4 0 64.1-28.7 64.1-64.1 0-35.4-28.7-64.1-64.1-64.1zm0 110c-25.3 0-45.9-20.5-45.9-45.9s20.5-45.9 45.9-45.9S430 166.7 430 192s-20.5 45.9-45.8 45.9z"/>
+                            <circle cx="384.4" cy="191.9" r="31.9"></circle>
+                            <path d="M474.4 101.2l37.7-37.4h-76.4C392.9 29 321.8 0 255.9 0c-66 0-136.5 29-179.3 63.8H0l37.7 37.4C14.4 124.4 0 156.5 0 192c0 70.8 57.4 128.2 128.2 128.2 32.5 0 62.2-12.1 84.8-32.1l43.4 31.9 42.9-31.2-.5-1.2c22.7 20.2 52.5 32.5 85.3 32.5 70.8 0 128.2-57.4 128.2-128.2-.1-35.4-14.6-67.5-37.9-90.7zM368 64.8c-60.7 7.6-108.3 57.6-111.9 119.5-3.7-62-51.4-112.1-112.3-119.5 30.6-22 69.6-32.8 112.1-32.8S337.4 42.8 368 64.8zM128.2 288.2C75 288.2 32 245.1 32 192s43.1-96.2 96.2-96.2 96.2 43.1 96.2 96.2c-.1 53.1-43.1 96.2-96.2 96.2zm256 0c-53.1 0-96.2-43.1-96.2-96.2s43.1-96.2 96.2-96.2 96.2 43.1 96.2 96.2c-.1 53.1-43.1 96.2-96.2 96.2z"/>
+                        </svg>
+                    </button>
+                    <button class="Instagram" ><i class="fab fa-instagram"></i></button>
+                </div>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> Matara, Sri Lanka</li>
+                    <li><i class="fas fa-envelope"></i> beyondlankatour@gmail.com</li>
+                    <li><i class="fas fa-phone"></i> +94 70 38 61 194</li>
+                </ul>
+            </div>
+
+            <!-- Column 4 -->
+            <div class="footer-col">
+                <h3>Send Us a Message</h3>
+                <form class="contactFrom" id="contactForm" onsubmit="event.preventDefault(); sendMail();">
+                    <input id="name" type="text" name="name" placeholder="Your Name" required>
+                    <input id="email" type="email" name="email" placeholder="Your Email" required>
+                    <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+
+        </div>
+        <div class="copyright">
+            <p>© 2025 All Rights Reserved | Designed & Developed By <a href="">Thamidu Chamod</a> &<a href=""> Shavindi Ridmamali.</a></p>
+        </div>
+    </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="js/contactUs.js"></script>
+<script>
+    function toggleMenu() {
+        document.querySelector(".nav-links").classList.toggle("open");
+    }
+</script>
+
+<script>
+    let index = 0;
+    const slides = document.querySelectorAll(".hero-slide");
+
+    function changeSlide() {
+        slides[index].classList.remove("active");
+        index = (index + 1) % slides.length;
+        slides[index].classList.add("active");
+    }
+
+    setInterval(changeSlide, 5000); // change every 5 seconds
+</script>
+
+</body>
+</html>
